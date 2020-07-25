@@ -1,5 +1,5 @@
 import React from "react";
-import { StatusBar, TouchableWithoutFeedback } from "react-native";
+import { StatusBar, TouchableWithoutFeedback, StyleSheet } from "react-native";
 import styled from "styled-components";
 import {
   Ionicons,
@@ -35,7 +35,7 @@ export default HomeScreen = ({ navigation }) => {
       </Banner>
       <Button
         onPress={() => navigation.navigate("TourScreen")}
-        style={{ elevation: 7 }}
+        style={styles.shadowLevel7}
       >
         <Text black medium>
           Find a Tour Guide
@@ -71,7 +71,7 @@ export default HomeScreen = ({ navigation }) => {
                 }
                 key={index}
               >
-                <RecommendedGuideContainer style={{ elevation: 1 }}>
+                <RecommendedGuideContainer style={styles.shadowLevel1}>
                   <Profile>
                     <RecommendedGuideImage source={tourGuide.photo} />
                     <FlagImage source={tourGuide.nationality} />
@@ -140,21 +140,12 @@ export default HomeScreen = ({ navigation }) => {
                 }
                 key={index}
               >
-                <PlaceContainer style={{ elevation: 1 }}>
+                <PlaceContainer style={styles.shadowLevel1}>
                   <PlaceImage source={place.cover}></PlaceImage>
                   <LinearGradient
                     colors={["transparent", "#000"]}
                     locations={[0, 0.6]}
-                    style={{
-                      flexDirection: "row",
-                      padding: 8,
-                      justifyContent: "center",
-                      alignItems: "center",
-                      height: 38,
-                      width: "100%",
-                      borderRadius: 8,
-                      marginTop: -30,
-                    }}
+                    style={styles.linearGradient}
                   >
                     <RatingContainer>
                       <FontAwesome name="star" size={18} color="#f1c232" />
@@ -309,3 +300,36 @@ const PlaceImage = styled.Image`
   width: 100%;
   border-radius: 12px;
 `;
+
+const styles = StyleSheet.create({
+  shadowLevel7: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7,
+  },
+  shadowLevel1: {
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.18,
+    shadowRadius: 1.0,
+    elevation: 1,
+  },
+  linearGradient: {
+    flexDirection: "row",
+    padding: 8,
+    justifyContent: "center",
+    alignItems: "center",
+    height: 38,
+    width: "100%",
+    borderRadius: 8,
+    marginTop: -30,
+  },
+});
