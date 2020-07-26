@@ -245,7 +245,7 @@ const Banner = styled.View`
 `;
 
 const SearchBar = styled.View`
-  margin: 30px 38px 18px 48px;
+  margin: 34px 38px 18px 58px;
   background-color: rgba(255, 255, 255, 0.8);
   padding: 6px 10px 6px 18px;
   border-radius: 8px;
@@ -308,8 +308,9 @@ const Rating = styled.View`
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: 30px;
-  left: 10px;
+  top: 28px;
+  z-index: 10;
+  padding: 10px 20px;
 `;
 
 const FilterButton = styled.TouchableOpacity`

@@ -120,9 +120,9 @@ const PlacePhoto = styled.Image`
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: 48px;
-  left: 36px;
+  top: 28px;
   z-index: 10;
+  padding: 10px 20px;
 `;
 
 const NameTab = styled.View`

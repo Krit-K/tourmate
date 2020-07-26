@@ -192,9 +192,9 @@ const RecentGuidePhotoImage = styled.Image`
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
+  top: 28px;
   z-index: 10;
-  top: 30px;
-  left: 10px;
+  padding: 10px 20px;
 `;
 
 const AboutMeContainer = styled.View`
