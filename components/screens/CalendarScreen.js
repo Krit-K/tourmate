@@ -19,7 +19,7 @@ export default CalendarScreen = ({ navigation }) => {
         <BackButton onPress={() => navigation.goBack()}>
           <Ionicons name="md-arrow-back" size={32} color="#f1b986" />
         </BackButton>
-        <Text title bold orange>
+        <Text title bold orange style={{ paddingTop: 16, paddingLeft: 10 }}>
           Calendar
         </Text>
       </Banner>
@@ -89,8 +89,9 @@ const Banner = styled.View`
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: 30px;
-  left: 10px;
+  top: 28px;
+  z-index: 10;
+  padding: 10px 20px;
 `;
 
 const InformationContainer = styled.View`
