@@ -17,6 +17,7 @@ export default HomeScreen = ({ navigation }) => {
   const popularPlaces = places.filter((place) => place.rating > 4.7);
   return (
     <Container>
+      <SafeAreaView />
       <StatusBar barStyle="light-content" />
       <Banner>
         <Header>
@@ -167,6 +168,10 @@ export default HomeScreen = ({ navigation }) => {
   );
 };
 
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f1b986ff;
+`;
+
 const Container = styled.View`
   flex: 1;
   background-color: #f3f3f3ff;
@@ -176,7 +181,7 @@ const Banner = styled.View`
   background-color: #f1b986ff;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  padding-bottom: 60px;
+  height: 18%;
 `;
 
 const Header = styled.View`

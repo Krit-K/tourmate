@@ -5,6 +5,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 import noMessages from "../../assets/noMessages.png";
 import Text from "../Text";
+import { vw, vh } from "../Viewport";
 
 export default MessageScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -14,6 +15,7 @@ export default MessageScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <PlaceContainer>
+        <SafeAreaView />
         <StatusBar />
         <Banner>
           <SearchBar>
@@ -36,6 +38,10 @@ export default MessageScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
+
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f1b986ff;
+`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3ff;
@@ -62,15 +68,14 @@ const SearchInput = styled.TextInput`
 
 const MessageImage = styled.Image`
   margin-top: 100px;
-  width: 150px;
-  height: 150px;
-  border-radius: 100px;
+  width: 60%;
+  height: 30%;
   align-self: center;
 `;
 
 const Button = styled.TouchableOpacity`
-  margin-top: 18px;
-  padding: 2px 18px 2px 18px;
+  margin-top: 20px;
+  padding: ${vh(1)}px ${vw(4)}px;
   background-color: #f1b986ff;
   border-radius: 100px;
   align-self: center;
