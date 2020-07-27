@@ -181,7 +181,7 @@ const Banner = styled.View`
   background-color: #f1b986ff;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  padding-bottom: 60px;
+  height: 18%;
 `;
 
 const Header = styled.View`
