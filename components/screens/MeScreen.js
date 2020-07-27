@@ -15,6 +15,7 @@ import Text from "../Text";
 export default MeScreen = ({ navigation }) => {
   return (
     <PlaceContainer>
+      <SafeAreaView />
       <StatusBar />
       <Banner>
         <Header>
@@ -122,6 +123,10 @@ export default MeScreen = ({ navigation }) => {
     </PlaceContainer>
   );
 };
+
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f1b986ff;
+`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3ff;

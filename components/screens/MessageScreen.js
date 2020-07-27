@@ -14,6 +14,7 @@ export default MessageScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <PlaceContainer>
+        <SafeAreaView />
         <StatusBar />
         <Banner>
           <SearchBar>
@@ -36,6 +37,10 @@ export default MessageScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
+
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f1b986ff;
+`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3ff;

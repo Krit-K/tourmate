@@ -187,6 +187,7 @@ export default TourScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <TourGuidesContainer>
+        <SafeAreaView />
         <StatusBar />
         <Banner>
           <SearchBar>
@@ -234,6 +235,10 @@ export default TourScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
+
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f1b986ff;
+`;
 
 const TourGuidesContainer = styled.View`
   background-color: #f3f3f3ff;

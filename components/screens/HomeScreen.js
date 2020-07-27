@@ -17,6 +17,7 @@ export default HomeScreen = ({ navigation }) => {
   const popularPlaces = places.filter((place) => place.rating > 4.7);
   return (
     <Container>
+      <SafeAreaView />
       <StatusBar barStyle="light-content" />
       <Banner>
         <Header>
@@ -166,6 +167,10 @@ export default HomeScreen = ({ navigation }) => {
     </Container>
   );
 };
+
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f1b986ff;
+`;
 
 const Container = styled.View`
   flex: 1;

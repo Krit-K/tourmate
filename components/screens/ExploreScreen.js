@@ -66,6 +66,7 @@ export default ExploreScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
+        <SafeAreaView />
         <StatusBar barStyle="light-content" />
         <Banner>
           <SearchBar>
@@ -112,6 +113,10 @@ export default ExploreScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
+
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f1b986ff;
+`;
 
 const Container = styled.View`
   flex: 1;
