@@ -18,53 +18,55 @@ export default MeScreen = ({ navigation }) => {
     <PlaceContainer>
       <SafeAreaView />
       <StatusBar />
-      <Banner></Banner>
-      <Header>
-        <ProfileInfo>
-          <Text white title>
-            {"\n"}Jennie Kim
-          </Text>
-          <Text white large>
-            ID: BK1996
-          </Text>
-        </ProfileInfo>
-        <ProfileImage source={profileImage} />
-      </Header>
-      <FavourtieGuidesContainer>
-        <Text large> My Favourite Tour Guides</Text>
-        <FavouriteGuides
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-        >
-          {tourGuides.map((tourGuide, index) => {
-            return (
-              <FavouriteGuideContainer key={index}>
-                <FavouriteGuide
-                  onPress={() =>
-                    navigation.navigate("TourGuideScreen", {
-                      tourGuide: tourGuide,
-                    })
-                  }
-                >
-                  <FavouriteGuideImage source={tourGuide.photo} />
-                  <FlagImage source={tourGuide.nationality} />
-                </FavouriteGuide>
-                <FavouriteGuideInfo>
-                  <RatingContainer>
-                    <FontAwesome name="star" size={18} color="#f1c232" />
-                    <Rating>
-                      <Text>{tourGuide.rating}</Text>
-                    </Rating>
-                  </RatingContainer>
-                  <Text black small>
-                    {tourGuide.name}
-                  </Text>
-                </FavouriteGuideInfo>
-              </FavouriteGuideContainer>
-            );
-          })}
-        </FavouriteGuides>
-      </FavourtieGuidesContainer>
+      <Banner />
+      <TopArea>
+        <Header>
+          <ProfileInfo>
+            <Text white title>
+              Jennie Kim
+            </Text>
+            <Text white large>
+              ID: BK1996
+            </Text>
+          </ProfileInfo>
+          <ProfileImage source={profileImage} />
+        </Header>
+        <FavourtieGuidesContainer>
+          <Text large> My Favourite Tour Guides</Text>
+          <FavouriteGuides
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+          >
+            {tourGuides.map((tourGuide, index) => {
+              return (
+                <FavouriteGuideContainer key={index}>
+                  <FavouriteGuide
+                    onPress={() =>
+                      navigation.navigate("TourGuideScreen", {
+                        tourGuide: tourGuide,
+                      })
+                    }
+                  >
+                    <FavouriteGuideImage source={tourGuide.photo} />
+                    <FlagImage source={tourGuide.nationality} />
+                  </FavouriteGuide>
+                  <FavouriteGuideInfo>
+                    <RatingContainer>
+                      <FontAwesome name="star" size={18} color="#f1c232" />
+                      <Rating>
+                        <Text>{tourGuide.rating}</Text>
+                      </Rating>
+                    </RatingContainer>
+                    <Text black small>
+                      {tourGuide.name}
+                    </Text>
+                  </FavouriteGuideInfo>
+                </FavouriteGuideContainer>
+              );
+            })}
+          </FavouriteGuides>
+        </FavourtieGuidesContainer>
+      </TopArea>
 
       <ButtonContainer>
         <ButtonColumn>
@@ -143,11 +145,16 @@ const Banner = styled.View`
 `;
 
 const Header = styled.View`
-  margin: 26px 18px ${vw(4)}px 18px;
+  margin: ${vh(2)}px 18px ${vh(1)}px 18px;
   border-radius: 8px;
   flex-direction: row;
   justify-content: space-between;
   align-self: center;
+  height: 30%;
+`;
+
+const TopArea = styled.View`
+  height: 60%;
 `;
 
 const ProfileInfo = styled.View`
@@ -156,19 +163,19 @@ const ProfileInfo = styled.View`
 `;
 
 const ProfileImage = styled.Image`
-  height: ${vw(30)}px;
-  width: ${vw(30)}px;
+  height: ${vh(16)}px;
+  width: ${vh(16)}px;
   border-radius: 100px;
 `;
 
 const FavourtieGuidesContainer = styled.View`
-  margin: 4px 18px 18px 18px;
+  margin: 0px 18px;
 `;
 
 const FavouriteGuides = styled.ScrollView``;
 
 const FavouriteGuideContainer = styled.View`
-  padding: ${vh(2)}px ${vh(1)}px 0px 0px;
+  padding: ${vh(1)}px ${vh(1)}px 0px 0px;
   justify-content: center;
 `;
 
@@ -186,15 +193,15 @@ const FavouriteGuideInfo = styled.View`
   border-bottom-left-radius: ${vw(6)}px;
   border-bottom-right-radius: ${vw(6)}px;
   margin: ${vw(0)}px ${vw(2)}px;
-  padding: ${vw(1)}px ${vw(5)}px;
+
   justify-content: center;
   align-items: center;
 `;
 
 const FavouriteGuideImage = styled.Image`
   margin: 3px 8px 0px 8px;
-  height: ${vw(35)}px;
-  width: ${vw(35)}px;
+  height: ${vh(18)}px;
+  width: ${vh(18)}px;
   border-radius: 100px;
 `;
 
