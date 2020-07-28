@@ -14,7 +14,7 @@ export default CalendarScreen = ({ navigation }) => {
 
   return (
     <PlaceContainer>
-      <StatusBar />
+      <StatusBar barStyle="default" />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
           <Ionicons name="md-arrow-back" size={32} color="#f1b986" />
