@@ -230,6 +230,7 @@ export default TourScreen = ({ navigation }) => {
           renderContent={renderInner}
           initialSnap={1}
           enabledContentTapInteraction={false}
+          enabledInnerScrolling={false}
         />
       </TourGuidesContainer>
     </TouchableWithoutFeedback>
