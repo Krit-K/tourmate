@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
 
 import noMessages from "../../assets/noMessages.png";
 import Text from "../Text";
-import { vw, vh } from "../Viewport";
 
 export default MessageScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");

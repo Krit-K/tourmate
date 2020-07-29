@@ -2,6 +2,10 @@ import React from "react";
 import { StatusBar } from "react-native";
 import styled from "styled-components";
 import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
+import {
   Feather,
   FontAwesome,
   Octicons,
@@ -11,7 +15,6 @@ import {
 import profileImage from "../../assets/jennie.png";
 import tourGuides from "../../tourGuideData";
 import Text from "../Text";
-import { vw, vh } from "../Viewport";
 
 export default MeScreen = ({ navigation }) => {
   return (

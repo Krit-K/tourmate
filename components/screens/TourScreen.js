@@ -16,6 +16,8 @@ import {
 import { ButtonGroup } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
+import { widthPercentageToDP as vw } from "react-native-responsive-screen";
+
 import Text from "../Text";
 import tourGuides from "../../tourGuideData";
 
