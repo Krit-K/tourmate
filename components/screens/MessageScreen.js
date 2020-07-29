@@ -71,8 +71,8 @@ const SearchInput = styled.TextInput`
 
 const MessageImage = styled.Image`
   margin-top: 100px;
-  width: 60%;
-  height: 30%;
+  width: ${vh(30)}px;
+  height: ${vh(30)}px;
   align-self: center;
 `;
 
