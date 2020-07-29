@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   StatusBar,
-  Dimensions,
   Keyboard,
   TouchableWithoutFeedback,
   StyleSheet,
@@ -16,11 +15,10 @@ import {
 import { ButtonGroup } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
+import { widthPercentageToDP as vw } from "react-native-responsive-screen";
+
 import Text from "../Text";
 import tourGuides from "../../tourGuideData";
-
-const screenWidth = Dimensions.get("window").width;
-const sliderLength = (screenWidth - 40) * 0.83;
 
 const tourGuideItem = (tourGuide, navigation) => {
   return (
@@ -140,7 +138,7 @@ export default TourScreen = ({ navigation }) => {
           <MultiSlider
             isMarkersSeparated={true}
             values={[age[0], age[1]]}
-            sliderLength={sliderLength}
+            sliderLength={vw(75)}
             onValuesChange={changeAge}
             min={18}
             max={50}
@@ -150,7 +148,7 @@ export default TourScreen = ({ navigation }) => {
             unselectedStyle={styles.unselectedBar}
             markerStyle={styles.marker}
             pressedMarkerStyle={styles.pressedMarker}
-            snapped
+            snapped={false}
           />
           <PriceContainer>
             <Text black>Price Range</Text>
@@ -159,7 +157,7 @@ export default TourScreen = ({ navigation }) => {
           <MultiSlider
             isMarkersSeparated={true}
             values={[price[0], price[1]]}
-            sliderLength={sliderLength}
+            sliderLength={vw(75)}
             onValuesChange={changePrice}
             min={0}
             max={500}
@@ -229,7 +227,9 @@ export default TourScreen = ({ navigation }) => {
           renderHeader={renderHeader}
           renderContent={renderInner}
           initialSnap={1}
+          enabledContentGestureInteraction={false}
           enabledContentTapInteraction={false}
+          enabledInnerScrolling={false}
         />
       </TourGuidesContainer>
     </TouchableWithoutFeedback>

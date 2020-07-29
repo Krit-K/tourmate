@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
 
 import noMessages from "../../assets/noMessages.png";
 import Text from "../Text";
-import { vw, vh } from "../Viewport";
 
 export default MessageScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -68,8 +71,8 @@ const SearchInput = styled.TextInput`
 
 const MessageImage = styled.Image`
   margin-top: 100px;
-  width: 60%;
-  height: 30%;
+  width: ${vh(30)}px;
+  height: ${vh(30)}px;
   align-self: center;
 `;
 

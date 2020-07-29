@@ -3,6 +3,10 @@ import styled from "styled-components";
 import { StatusBar } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Calendar } from "react-native-calendars";
+import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
 
 import Text from "../Text";
 
@@ -14,12 +18,12 @@ export default CalendarScreen = ({ navigation }) => {
 
   return (
     <PlaceContainer>
-      <StatusBar />
+      <StatusBar barStyle="default" />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
           <Ionicons name="md-arrow-back" size={32} color="#f1b986" />
         </BackButton>
-        <Text title bold orange style={{ paddingTop: 16, paddingLeft: 10 }}>
+        <Text title bold orange style={{ paddingLeft: 10 }}>
           Calendar
         </Text>
       </Banner>
@@ -89,7 +93,7 @@ const Banner = styled.View`
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: 28px;
+  top: ${vh(4)}px;
   z-index: 10;
   padding: 10px 20px;
 `;

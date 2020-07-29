@@ -92,7 +92,6 @@ export default ExploreScreen = ({ navigation }) => {
                 >
                   {category}
                 </CategoryName>
-                {selectedCategory === category && <CategoryDot />}
               </Category>
             );
           })}
@@ -157,14 +156,7 @@ const Category = styled.TouchableOpacity`
 
 const CategoryName = styled(Text)`
   color: ${(props) => (props.selected ? "#ff9900" : "black")};
-  font-weight: ${(props) => (props.selected ? "700" : "300")};
-`;
-
-const CategoryDot = styled.View`
-  width: 6px;
-  height: 6px;
-  border-radius: 3px;
-  background-color: #f1b986ff;
+  font-weight: ${(props) => (props.selected ? "300" : "300")};
 `;
 
 const Places = styled.FlatList`
