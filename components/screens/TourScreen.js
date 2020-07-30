@@ -38,9 +38,12 @@ const tourGuideItem = (tourGuide, navigation) => {
         </RatingContainer>
       </Profile>
       <ProfileInfo>
-        <Text black large>
-          {tourGuide.name}
-        </Text>
+        <InfoHeader>
+          <Text black large>
+            {tourGuide.name}
+          </Text>
+          <Ionicons name="ios-heart-empty" size={22} />
+        </InfoHeader>
         <Text black>
           <Feather name="clock" size={18} color="#000" />{" "}
           <Text medium orange>
@@ -288,6 +291,11 @@ const ProfileInfo = styled.View`
   flex: 1;
   padding: 8px;
   margin-left: 24px;
+`;
+
+const InfoHeader = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
 `;
 
 const FlagImage = styled.Image`
