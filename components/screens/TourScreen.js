@@ -109,80 +109,82 @@ export default TourScreen = ({ navigation }) => {
 
   const renderInner = () => {
     return (
-      <Panel>
-        <FilterHeader>
-          <Text black medium>
-            Filters
-          </Text>
-          <ClearButton onPress={() => clearFilters()}>
-            <Text grey small>
-              Clear
+      <BlurView intensity={100}>
+        <Panel>
+          <FilterHeader>
+            <Text black medium>
+              Filters
             </Text>
-          </ClearButton>
-        </FilterHeader>
-        <GenderContainer>
-          <Text black>Gender</Text>
-        </GenderContainer>
-        <ButtonGroup
-          onPress={(index) => updateButtonIndex(index)}
-          selectedIndex={selectedButtonIndex}
-          buttons={["Male", "Female", "Both"]}
-          containerBorderRadius={8}
-          innerBorderStyle={styles.buttonInnerBorder}
-          containerStyle={styles.buttonGroupContainer}
-          selectedButtonStyle={styles.selectedButton}
-          textStyle={{ fontFamily: "Comfortaa_400Regular" }}
-          buttonStyle={{ backgroundColor: "#ccccccff" }}
-        />
-        <SliderContainer>
-          <AgeContainer>
-            <Text black>Age</Text>
-            <Text black>{`${age[0]} - ${age[1]}`}</Text>
-          </AgeContainer>
-          <MultiSlider
-            isMarkersSeparated={true}
-            values={[age[0], age[1]]}
-            sliderLength={vw(75)}
-            onValuesChange={changeAge}
-            min={18}
-            max={50}
-            step={1}
-            customMarker={{ backgroundColor: "#f1b986" }}
-            selectedStyle={styles.selectedBar}
-            unselectedStyle={styles.unselectedBar}
-            markerStyle={styles.marker}
-            pressedMarkerStyle={styles.pressedMarker}
-            snapped={false}
+            <ClearButton onPress={() => clearFilters()}>
+              <Text grey small>
+                Clear
+              </Text>
+            </ClearButton>
+          </FilterHeader>
+          <GenderContainer>
+            <Text black>Gender</Text>
+          </GenderContainer>
+          <ButtonGroup
+            onPress={(index) => updateButtonIndex(index)}
+            selectedIndex={selectedButtonIndex}
+            buttons={["Male", "Female", "Both"]}
+            containerBorderRadius={8}
+            innerBorderStyle={styles.buttonInnerBorder}
+            containerStyle={styles.buttonGroupContainer}
+            selectedButtonStyle={styles.selectedButton}
+            textStyle={{ fontFamily: "Comfortaa_400Regular" }}
+            buttonStyle={{ backgroundColor: "#ccccccff" }}
           />
-          <PriceContainer>
-            <Text black>Price Range</Text>
-            <Text black>{`${price[0]} - ${price[1]} THB`}</Text>
-          </PriceContainer>
-          <MultiSlider
-            isMarkersSeparated={true}
-            values={[price[0], price[1]]}
-            sliderLength={vw(75)}
-            onValuesChange={changePrice}
-            min={0}
-            max={500}
-            step={1}
-            customMarker={{ backgroundColor: "#f1b986" }}
-            selectedStyle={styles.selectedBar}
-            unselectedStyle={styles.unselectedBar}
-            markerStyle={styles.marker}
-            pressedMarkerStyle={styles.pressedMarker}
-            snapped
-          />
-        </SliderContainer>
-        <ApplyFilterButton
-          onPress={() => {
-            bottomSheet.current.snapTo(1);
-            changeFilters([gender, age[0], age[1], price[0], price[1]]);
-          }}
-        >
-          <Text black>Apply Filter</Text>
-        </ApplyFilterButton>
-      </Panel>
+          <SliderContainer>
+            <AgeContainer>
+              <Text black>Age</Text>
+              <Text black>{`${age[0]} - ${age[1]}`}</Text>
+            </AgeContainer>
+            <MultiSlider
+              isMarkersSeparated={true}
+              values={[age[0], age[1]]}
+              sliderLength={vw(75)}
+              onValuesChange={changeAge}
+              min={18}
+              max={50}
+              step={1}
+              customMarker={{ backgroundColor: "#f1b986" }}
+              selectedStyle={styles.selectedBar}
+              unselectedStyle={styles.unselectedBar}
+              markerStyle={styles.marker}
+              pressedMarkerStyle={styles.pressedMarker}
+              snapped={false}
+            />
+            <PriceContainer>
+              <Text black>Price Range</Text>
+              <Text black>{`${price[0]} - ${price[1]} THB`}</Text>
+            </PriceContainer>
+            <MultiSlider
+              isMarkersSeparated={true}
+              values={[price[0], price[1]]}
+              sliderLength={vw(75)}
+              onValuesChange={changePrice}
+              min={0}
+              max={500}
+              step={1}
+              customMarker={{ backgroundColor: "#f1b986" }}
+              selectedStyle={styles.selectedBar}
+              unselectedStyle={styles.unselectedBar}
+              markerStyle={styles.marker}
+              pressedMarkerStyle={styles.pressedMarker}
+              snapped
+            />
+          </SliderContainer>
+          <ApplyFilterButton
+            onPress={() => {
+              bottomSheet.current.snapTo(1);
+              changeFilters([gender, age[0], age[1], price[0], price[1]]);
+            }}
+          >
+            <Text black>Apply Filter</Text>
+          </ApplyFilterButton>
+        </Panel>
+      </BlurView>
     );
   };
 
@@ -341,11 +343,11 @@ const FilterButton = styled.TouchableOpacity`
 const Panel = styled.View`
   height: 600px;
   padding: 10px 20px;
-  background-color: #d9d9d9;
+  background-color: #d9d9d99a;
 `;
 
 const PanelHeader = styled.View`
-  background-color: #d9d9d9;
+  background-color: #e9e9e9;
   padding-top: 20px;
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
