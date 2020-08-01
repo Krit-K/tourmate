@@ -78,6 +78,15 @@ export default MeScreen = ({ navigation }) => {
       <ButtonContainer>
         <ButtonColumn>
           <Button>
+            <FontAwesome name="sliders" size={vw(8)} color="black" />
+
+            <TextContainer>
+              <Text black small style={{ marginLeft: 12 }}>
+                General
+              </Text>
+            </TextContainer>
+          </Button>
+          <Button>
             <Feather name="map-pin" size={vw(8)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
@@ -86,18 +95,11 @@ export default MeScreen = ({ navigation }) => {
             </TextContainer>
           </Button>
           <Button>
-            <SimpleLineIcons name="wallet" size={vw(8)} color="black" />
+            <Octicons name="gift" size={vw(9)} color="black" />
+
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
-                My Wallet
-              </Text>
-            </TextContainer>
-          </Button>
-          <Button>
-            <FontAwesome name="sliders" size={vw(8)} color="black" />
-            <TextContainer>
-              <Text black small style={{ marginLeft: 12 }}>
-                General
+                Refer a Friend
               </Text>
             </TextContainer>
           </Button>
@@ -112,10 +114,10 @@ export default MeScreen = ({ navigation }) => {
             </TextContainer>
           </Button>
           <Button>
-            <Octicons name="gift" size={vw(9)} color="black" />
+            <SimpleLineIcons name="phone" size={vw(8)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: vw(4) }}>
-                Refer a Friend
+                Useful Contacts
               </Text>
             </TextContainer>
           </Button>
@@ -208,9 +210,9 @@ const FavouriteGuideInfo = styled.View`
 `;
 
 const FavouriteGuideImage = styled.Image`
-  margin: 0px 8px 0px 8px;
-  height: ${vh(18)}px;
-  width: ${vh(18)}px;
+  margin: ${vh(1)}px ${vh(1)}px;
+  height: ${vh(14)}px;
+  width: ${vh(14)}px;
   border-radius: 100px;
 `;
 
