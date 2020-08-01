@@ -12,6 +12,7 @@ import {
   Feather,
   MaterialIcons,
 } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
 import { ButtonGroup } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
