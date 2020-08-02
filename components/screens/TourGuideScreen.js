@@ -6,7 +6,11 @@ import {
   Animated,
 } from "react-native";
 import styled from "styled-components";
-import { Ionicons } from "@expo/vector-icons";
+import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
+import { Ionicons, Entypo } from "@expo/vector-icons";
 
 import videoPlayer from "../../assets/videoPlayer.png";
 import places from "../../exploreData";
@@ -96,6 +100,9 @@ export default TourGuideScreen = ({ route, navigation }) => {
                 {tourGuide.name}
               </Text>
             </ProfileInfo>
+            <MessageIcon>
+              <Entypo name="message" size={vh(4)} color="#fff" />
+            </MessageIcon>
           </Header>
           <RecentPhotosContainer>
             <Text large> {tourGuide.name}'s recent photos</Text>
@@ -175,6 +182,15 @@ const ProfileImage = styled.Image`
   width: null;
   height: null;
   /* margin-top: -48px; */
+`;
+
+const MessageIcon = styled.View`
+  border-radius: 100px;
+  background-color: #b0c9e4;
+  height: ${vh(5.5)}px;
+  width: ${vh(5.5)}px;
+  justify-content: center;
+  align-items: center;
 `;
 
 const RecentPhotosContainer = styled.View`

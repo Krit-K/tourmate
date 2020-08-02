@@ -3,10 +3,7 @@ import styled from "styled-components";
 import { StatusBar } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Calendar } from "react-native-calendars";
-import {
-  widthPercentageToDP as vw,
-  heightPercentageToDP as vh,
-} from "react-native-responsive-screen";
+import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
 import Text from "../Text";
 
@@ -30,32 +27,14 @@ export default CalendarScreen = ({ navigation }) => {
       <InformationContainer>
         <Calendar
           horizontal={true}
-          // Enable paging on horizontal, default = false
           pagingEnabled={true}
-          // Initially visible month. Default = Date()
-          // current={"2020-06-19"}
-          // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
           minDate={"2019-01-01"}
-          // Maximum date that can be selected, dates after maxDate will be grayed out. Default = undefined
           maxDate={"2021-12-31"}
-          // Handler which gets executed on day press. Default = undefined
-          onDayPress={(day) => {
-            // console.log("selected day", day);
-          }}
-          // Month format in calendar title. Formatting values: http://arshaw.com/xdate/#Formatting
+          onDayPress={(day) => {}}
           monthFormat={"yyyy MM"}
-          // Handler which gets executed when visible month changes in calendar. Default = undefined
-          onMonthChange={(month) => {
-            // console.log("month changed", month);
-          }}
-          // Hide month navigation arrows. Default = false
-          hideArrows={false}
-          // Do not show days of other months in month page. Default = false
+          onMonthChange={(month) => {}}
           hideExtraDays={false}
-          // If hideArrows=false and hideExtraDays=false do not swich month when tapping on greyed out
-          // day from another month that is visible in calendar page. Default = false
           disableMonthChange={true}
-          // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
           firstDay={1}
           markedDates={{
             [currentDate]: {

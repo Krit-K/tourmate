@@ -29,7 +29,18 @@ export default ExploreScreen = ({ navigation }) => {
       <TouchableWithoutFeedback
         onPress={() => navigation.navigate("PlaceScreen", { place: place })}
       >
-        <Place>
+        <Place
+          style={{
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 5,
+              height: 5,
+            },
+            shadowOpacity: 0.29,
+            shadowRadius: 4.65,
+            elevation: 7,
+          }}
+        >
           <PlaceCover source={place.cover} />
           <LinearGradient
             colors={["transparent", "#000"]}
@@ -86,7 +97,11 @@ export default ExploreScreen = ({ navigation }) => {
         <Categories horizontal={true} showsHorizontalScrollIndicator={false}>
           {categoryList.map((category, index) => {
             return (
-              <Category key={index} onPress={() => changeCategory(category)}>
+              <Category
+                key={index}
+                selected={selectedCategory === category ? true : false}
+                onPress={() => changeCategory(category)}
+              >
                 <CategoryName
                   selected={selectedCategory === category ? true : false}
                 >
@@ -149,13 +164,14 @@ const Category = styled.TouchableOpacity`
   align-items: center;
   margin: 0 10px;
   padding: 5px 10px;
-  border-color: #ff9900;
+  background-color: ${(props) => (props.selected ? "#f1b986ff" : "#f3f3f3ff")};
+  border-color: #f1b986ff;
   border-width: 1px;
   border-radius: 20px;
 `;
 
 const CategoryName = styled(Text)`
-  color: ${(props) => (props.selected ? "#ff9900" : "black")};
+  color: ${(props) => (props.selected ? "#fff" : "black")};
   font-weight: ${(props) => (props.selected ? "300" : "300")};
 `;
 
