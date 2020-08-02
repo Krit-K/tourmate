@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { StatusBar } from "react-native";
 import styled from "styled-components";
+import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 import { FontAwesome5, Ionicons, FontAwesome } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
 
 import Text from "../Text";
 import tourGuides from "../../tourGuideData";
@@ -23,21 +25,36 @@ export default PlaceScreen = ({ route, navigation }) => {
       <BackButton onPress={() => navigation.goBack()}>
         <Ionicons name="md-arrow-back" size={32} color="#ffffff" />
       </BackButton>
+      <StatusBar barStyle="light-content" />
       <ScrollContainer>
-        <StatusBar barStyle="light-content" />
-        <PlacePhotoContainer>
-          <PlacePhoto source={place.cover} />
-        </PlacePhotoContainer>
-        <NameTab>
-          <Text medium black>
+        <BlurView
+          tint={"light"}
+          intensity={90}
+          style={{
+            flexDirection: "row",
+            paddingVertical: 5,
+            paddingHorizontal: 20,
+            marginLeft: 20,
+            justifyContent: "center",
+            zIndex: 100,
+            top: vh(19),
+            position: "absolute",
+            borderRadius: 14,
+          }}
+        >
+          <Text small black>
             {place.title}
             {"   "}
           </Text>
-          <FontAwesome5 name="bookmark" size={20} />
-        </NameTab>
+          <FontAwesome5 name="bookmark" size={vh(2)} />
+        </BlurView>
+        <PlacePhotoContainer>
+          <PlacePhoto source={place.cover} />
+        </PlacePhotoContainer>
         <Description>
           <Text black>{place.description}</Text>
         </Description>
+
         <AvailableTourGuidesContainer>
           <Text black large>
             Available Tour Guides
@@ -126,13 +143,15 @@ const BackButton = styled.TouchableOpacity`
 `;
 
 const NameTab = styled.View`
+  position: absolute;
+  z-index: 10;
+  top: ${vh(24)}px;
   flex-direction: row;
-  background-color: #ede3daff;
+  background-color: #ede3dadf;
   align-self: flex-start;
   height: 30px;
   margin: -50px 0px 0px 20px;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-radius: 100px;
   padding: 0px 12px;
   align-items: center;
   justify-content: space-between;
@@ -141,7 +160,8 @@ const NameTab = styled.View`
 const Description = styled.View`
   background-color: #ede3daff;
   border-radius: 20px;
-  padding: 12px 24px;
+  padding: 12px 24px 24px 24px;
+  margin: -40px 0px 20px 0px;
 `;
 
 const AvailableTourGuidesContainer = styled.View`
