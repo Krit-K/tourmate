@@ -29,7 +29,18 @@ export default ExploreScreen = ({ navigation }) => {
       <TouchableWithoutFeedback
         onPress={() => navigation.navigate("PlaceScreen", { place: place })}
       >
-        <Place>
+        <Place
+          style={{
+            shadowColor: "#000",
+            shadowOffset: {
+              width: 5,
+              height: 5,
+            },
+            shadowOpacity: 0.29,
+            shadowRadius: 4.65,
+            elevation: 7,
+          }}
+        >
           <PlaceCover source={place.cover} />
           <LinearGradient
             colors={["transparent", "#000"]}
