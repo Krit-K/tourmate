@@ -47,7 +47,6 @@ export default HomeScreen = ({ navigation }) => {
       <RecommendedGuidesContainer>
         <Subtitle>
           <Text small black>
-            {" "}
             Recomended Tour Guides
           </Text>
           <SeeAll onPress={() => navigation.navigate("TourScreen")}>
@@ -119,7 +118,6 @@ export default HomeScreen = ({ navigation }) => {
       <PlacesContainer>
         <Subtitle>
           <Text small black>
-            {" "}
             Popular Atrraction Places
           </Text>
           <SeeAll onPress={() => navigation.navigate("Explore")}>
