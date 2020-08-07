@@ -3,7 +3,10 @@ import styled from "styled-components";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { AppLoading } from "expo";
 import {
@@ -99,12 +102,32 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <AppStack.Navigator mode="modal" headerMode="none">
+      <AppStack.Navigator
+        headerMode="none"
+        screenOptions={{
+          ...TransitionPresets.SlideFromRightIOS,
+          gestureEnabled: "true",
+          gestureDirection: "horizontal",
+        }}
+      >
         <AppStack.Screen name="App" component={TabNavScreen} />
         <AppStack.Screen name="PlaceScreen" component={PlaceScreen} />
         <AppStack.Screen name="TourScreen" component={TourScreen} />
         <AppStack.Screen name="TourGuideScreen" component={TourGuideScreen} />
-        <AppStack.Screen name="CalendarScreen" component={CalendarScreen} />
+        <AppStack.Screen
+          name="CalendarScreen"
+          component={CalendarScreen}
+          options={{ ...TransitionPresets.FadeFromBottomAndroid }}
+        />
+        <AppStack.Screen
+          name="GeneralScreen"
+          component={GeneralScreen}
+          options={{
+            gestureEnabled: "true",
+            gestureDirection: "horizontal",
+            ...TransitionPresets.FadeFromBottomAndroid,
+          }}
+        />
       </AppStack.Navigator>
     </NavigationContainer>
   );
