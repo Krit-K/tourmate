@@ -38,7 +38,7 @@ export default ExploreScreen = ({ navigation }) => {
             },
             shadowOpacity: 0.29,
             shadowRadius: 4.65,
-            elevation: 7,
+            elevation: 10,
           }}
         >
           <PlaceCover source={place.cover} />
@@ -46,7 +46,7 @@ export default ExploreScreen = ({ navigation }) => {
             colors={["transparent", "#000"]}
             locations={[0, 0.6]}
             style={{
-              width: "90%",
+              width: "100%",
               marginTop: -50,
               alignSelf: "center",
               padding: 8,
@@ -184,11 +184,13 @@ const Place = styled.View`
   margin-bottom: 24px;
   border-bottom-left-radius: 32px;
   border-bottom-right-radius: 32px;
+  align-self: center;
+  width: 90%;
 `;
 
 const PlaceCover = styled.Image`
   height: 250px;
-  width: 90%;
+  width: 100%;
   align-self: center;
   border-radius: 12px;
 `;
