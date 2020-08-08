@@ -12,7 +12,7 @@ const Text = styled.Text`
   ${({ white, black, orange, grey }) => {
     switch (true) {
       case grey:
-        return `color: #5a5757`;
+        return `color: #999999`;
       case white:
         return `color: white`;
       case black:

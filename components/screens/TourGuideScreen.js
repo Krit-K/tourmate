@@ -175,13 +175,10 @@ const ProfileInfo = styled.View`
 `;
 
 const ProfileImage = styled.Image`
-  /* width: 110px;
-  height: 110px; */
   border-radius: 100px;
   flex: 1;
   width: null;
   height: null;
-  /* margin-top: -48px; */
 `;
 
 const MessageIcon = styled.View`
