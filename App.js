@@ -26,6 +26,7 @@ import PlaceScreen from "./components/screens/PlaceScreen";
 import TourScreen from "./components/screens/TourScreen";
 import TourGuideScreen from "./components/screens/TourGuideScreen";
 import CalendarScreen from "./components/screens/CalendarScreen";
+import GeneralScreen from "./components/screens/GeneralScreen";
 
 import Text from "./components/Text";
 
@@ -88,6 +89,26 @@ const TabNavScreen = () => {
       <TabNav.Screen name="Explore" component={ExploreScreen} />
       <TabNav.Screen name="Me" component={MeScreen} />
     </TabNav.Navigator>
+  );
+};
+
+const GeneralScreens = () => {
+  return (
+    <AppStack.Navigator
+      headerMode="none"
+      screenOptions={{
+        gestureEnabled: true,
+        ...TransitionPresets.SlideFromRightIOS,
+        gestureEnabled: "true",
+        gestureDirection: "horizontal",
+      }}
+    >
+      <AppStack.Screen name="MessageNotification" component={PlaceScreen} />
+      <AppStack.Screen name="Language" component={PlaceScreen} />
+      <AppStack.Screen name="TextSize" component={PlaceScreen} />
+      <AppStack.Screen name="BlockedAccount" component={PlaceScreen} />
+      <AppStack.Screen name="Currency" component={PlaceScreen} />
+    </AppStack.Navigator>
   );
 };
 
