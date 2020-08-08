@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { StatusBar } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Calendar } from "react-native-calendars";
-import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
 import Text from "../Text";
 
@@ -15,6 +14,7 @@ export default CalendarScreen = ({ navigation }) => {
 
   return (
     <PlaceContainer>
+      <SafeAreaView />
       <StatusBar barStyle="default" />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
@@ -58,21 +58,25 @@ export default CalendarScreen = ({ navigation }) => {
   );
 };
 
+const SafeAreaView = styled.SafeAreaView`
+  background-color: #f3f3f3;
+`;
+
 const PlaceContainer = styled.View`
-  background-color: #f3f3f3ff;
+  background-color: #f3f3f3;
   flex: 1;
 `;
 
 const Banner = styled.View`
   flex-direction: row;
   align-items: center;
-  height: 13%;
+  height: 10%;
   padding-left: 50px;
 `;
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: ${vh(4)}px;
+  top: 15%;
   z-index: 10;
   padding: 10px 20px;
 `;
