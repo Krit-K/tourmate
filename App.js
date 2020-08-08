@@ -27,6 +27,7 @@ import TourScreen from "./components/screens/TourScreen";
 import TourGuideScreen from "./components/screens/TourGuideScreen";
 import CalendarScreen from "./components/screens/CalendarScreen";
 import GeneralScreen from "./components/screens/GeneralScreen";
+import EditProfileScreen from "./components/screens/EditProfileScreen";
 
 import Text from "./components/Text";
 
@@ -112,6 +113,28 @@ const GeneralScreens = () => {
   );
 };
 
+const EditProfileScreens = () => {
+  return (
+    <AppStack.Navigator
+      headerMode="none"
+      screenOptions={{
+        gestureEnabled: true,
+        ...TransitionPresets.SlideFromRightIOS,
+        gestureEnabled: "true",
+        gestureDirection: "horizontal",
+      }}
+    >
+      <AppStack.Screen name="Name" component={PlaceScreen} />
+      <AppStack.Screen name="ID" component={PlaceScreen} />
+      <AppStack.Screen name="PhoneNumber" component={PlaceScreen} />
+      <AppStack.Screen name="EmailAddress" component={PlaceScreen} />
+      <AppStack.Screen name="Password" component={PlaceScreen} />
+      <AppStack.Screen name="Nationality" component={PlaceScreen} />
+      <AppStack.Screen name="Birthday" component={PlaceScreen} />
+    </AppStack.Navigator>
+  );
+};
+
 export default function App() {
   let [fontsLoaded, error] = useFonts({
     Comfortaa_400Regular,
@@ -143,6 +166,15 @@ export default function App() {
         <AppStack.Screen
           name="GeneralScreen"
           component={GeneralScreen}
+          options={{
+            gestureEnabled: "true",
+            gestureDirection: "horizontal",
+            ...TransitionPresets.FadeFromBottomAndroid,
+          }}
+        />
+        <AppStack.Screen
+          name="EditProfileScreen"
+          component={EditProfileScreen}
           options={{
             gestureEnabled: "true",
             gestureDirection: "horizontal",
