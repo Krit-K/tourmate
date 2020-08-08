@@ -77,9 +77,8 @@ export default MeScreen = ({ navigation }) => {
 
       <ButtonContainer>
         <ButtonColumn>
-          <Button>
+          <Button onPress={() => navigation.navigate("GeneralScreen")}>
             <FontAwesome name="sliders" size={vw(8)} color="black" />
-
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
                 General
@@ -105,7 +104,7 @@ export default MeScreen = ({ navigation }) => {
           </Button>
         </ButtonColumn>
         <ButtonColumn>
-          <Button>
+          <Button onPress={() => navigation.navigate("EditProfileScreen")}>
             <SimpleLineIcons name="settings" size={vw(8)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
