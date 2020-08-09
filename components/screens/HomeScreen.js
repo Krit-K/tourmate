@@ -2,175 +2,169 @@ import React from "react";
 import { StatusBar, TouchableWithoutFeedback, StyleSheet } from "react-native";
 import styled from "styled-components";
 import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
+import {
   Ionicons,
   Feather,
   MaterialIcons,
   FontAwesome,
 } from "@expo/vector-icons";
 
+import Carousel from "react-native-snap-carousel";
 import { LinearGradient } from "expo-linear-gradient";
 import Text from "../Text";
 import places from "../../exploreData";
 import tourGuides from "../../tourGuideData";
 
 export default HomeScreen = ({ navigation }) => {
-  const popularPlaces = places.filter((place) => place.rating > 4.7);
+  const popularPlaces = places.filter((place) => place.rating > 4.6);
+  const renderPlaces = (place, index) => {
+    return (
+      <TouchableWithoutFeedback
+        onPress={() =>
+          navigation.navigate("PlaceScreen", {
+            place: place.item,
+          })
+        }
+        key={index}
+      >
+        <PlaceContainer>
+          <PlaceImage source={place.item.cover} />
+          <LinearGradient
+            colors={["transparent", "#000"]}
+            locations={[0, 0.6]}
+            style={styles.linearGradient}
+          >
+            <RatingContainer>
+              <FontAwesome name="star" size={18} color="#f1c232" />
+              <Rating>
+                <Text>{place.item.rating}</Text>
+              </Rating>
+            </RatingContainer>
+            <TextContainer>
+              <Text small>{place.item.title}</Text>
+              <Text>{place.item.teaser}</Text>
+            </TextContainer>
+          </LinearGradient>
+        </PlaceContainer>
+      </TouchableWithoutFeedback>
+    );
+  };
+
+  const renderTourGuides = (tourGuide, index) => {
+    return (
+      <TouchableWithoutFeedback
+        onPress={() =>
+          navigation.navigate("TourGuideScreen", {
+            tourGuide: tourGuide.item,
+          })
+        }
+        key={index}
+      >
+        <RecommendedGuideContainer>
+          <Profile>
+            <RecommendedGuideImage source={tourGuide.item.photo} />
+            <FlagImage source={tourGuide.item.nationality} />
+          </Profile>
+          <ProfileInfo>
+            <RatingContainer>
+              <FontAwesome name="star" size={18} color="#f1c232" />
+              <Rating>
+                <Text>{tourGuide.item.rating}</Text>
+              </Rating>
+            </RatingContainer>
+            <NameContainer>
+              <Text brown small>
+                {tourGuide.item.name}
+              </Text>
+            </NameContainer>
+          </ProfileInfo>
+        </RecommendedGuideContainer>
+      </TouchableWithoutFeedback>
+    );
+  };
+
   return (
     <Container>
-      <SafeAreaView />
       <StatusBar barStyle="light-content" />
-      <Banner>
-        <Header>
-          <Text large black>
-            Hi,{" "}
-            <Text large black>
-              Jennie Kim!
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <SafeAreaView />
+        <Banner>
+          <Header>
+            <Text large brown>
+              Hi,{" "}
+              <Text large brown>
+                Jennie Kim!
+              </Text>
             </Text>
-          </Text>
-          <CalendarContainer
-            onPress={() => navigation.navigate("CalendarScreen")}
-          >
-            <Calendar source={require("../../assets/calendar.png")} />
-          </CalendarContainer>
-        </Header>
-      </Banner>
-      <Button
-        onPress={() => navigation.navigate("TourScreen")}
-        style={styles.shadowLevel7}
-      >
-        <Text black medium>
-          Find a Tour Guide
-        </Text>
-        <Ionicons name="ios-arrow-dropright-circle" size={42} color="#b0c9e4" />
-      </Button>
-
-      <RecommendedGuidesContainer>
-        <Subtitle>
-          <Text small black>
-            Recomended Tour Guides
-          </Text>
-          <SeeAll onPress={() => navigation.navigate("TourScreen")}>
-            <Text black>See all{"  "}</Text>
-            <Ionicons name="ios-arrow-forward" size={16} color="#000" />
-          </SeeAll>
-        </Subtitle>
-        <RecommendedGuides
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          decelerationRate={0}
-          snapToInterval={300}
-          snapToAlignment={"center"}
+            <CalendarContainer
+              onPress={() => navigation.navigate("CalendarScreen")}
+            >
+              <Calendar source={require("../../assets/calendar.png")} />
+            </CalendarContainer>
+          </Header>
+        </Banner>
+        <Button
+          onPress={() => navigation.navigate("TourScreen")}
+          style={styles.shadowLevel7}
         >
-          {tourGuides.map((tourGuide, index) => {
-            return (
-              <TouchableWithoutFeedback
-                onPress={() =>
-                  navigation.navigate("TourGuideScreen", {
-                    tourGuide: tourGuide,
-                  })
-                }
-                key={index}
-              >
-                <RecommendedGuideContainer style={styles.shadowLevel1}>
-                  <Profile>
-                    <RecommendedGuideImage source={tourGuide.photo} />
-                    <FlagImage source={tourGuide.nationality} />
-                    <RatingContainer>
-                      <FontAwesome name="star" size={18} color="#f1c232" />
-                      <Rating>
-                        <Text>{tourGuide.rating}</Text>
-                      </Rating>
-                    </RatingContainer>
-                  </Profile>
-                  <ProfileInfo>
-                    <InfoHeader>
-                      <Text black large>
-                        {tourGuide.name}
-                      </Text>
-                      <Ionicons name="ios-heart-empty" size={22} />
-                    </InfoHeader>
-                    <Text black>
-                      <Feather name="clock" size={18} color="#000" />{" "}
-                      <Text medium orange>
-                        {tourGuide.category.price}
-                      </Text>{" "}
-                      THB per hr
-                    </Text>
-                    <SpeakingLanguageContainer>
-                      <MaterialIcons
-                        name="record-voice-over"
-                        size={18}
-                        color="#000"
-                      />
-                      <Text black>
-                        {" "}
-                        {tourGuide.languages.toString().replace(/,/g, ", ")}
-                      </Text>
-                    </SpeakingLanguageContainer>
-                  </ProfileInfo>
-                </RecommendedGuideContainer>
-              </TouchableWithoutFeedback>
-            );
-          })}
-        </RecommendedGuides>
-      </RecommendedGuidesContainer>
-
-      <PlacesContainer>
-        <Subtitle>
-          <Text small black>
-            Popular Atrraction Places
-          </Text>
-          <SeeAll onPress={() => navigation.navigate("Explore")}>
-            <Text black>See all{"  "}</Text>
-            <Ionicons name="ios-arrow-forward" size={16} color="#000" />
-          </SeeAll>
-        </Subtitle>
-        <Places
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          decelerationRate={0}
-          snapToInterval={290}
-          snapToAlignment={"center"}
-        >
-          {popularPlaces.map((place, index) => {
-            return (
-              <TouchableWithoutFeedback
-                onPress={() =>
-                  navigation.navigate("PlaceScreen", {
-                    place: place,
-                  })
-                }
-                key={index}
-              >
-                <PlaceContainer style={styles.shadowLevel1}>
-                  <PlaceImage source={place.cover}></PlaceImage>
-                  <LinearGradient
-                    colors={["transparent", "#000"]}
-                    locations={[0, 0.6]}
-                    style={styles.linearGradient}
-                  >
-                    <RatingContainer>
-                      <FontAwesome name="star" size={18} color="#f1c232" />
-                      <Rating>
-                        <Text>{place.rating}</Text>
-                      </Rating>
-                    </RatingContainer>
-                    <TextContainer>
-                      <Text small>{place.title}</Text>
-                    </TextContainer>
-                  </LinearGradient>
-                </PlaceContainer>
-              </TouchableWithoutFeedback>
-            );
-          })}
-        </Places>
-      </PlacesContainer>
+          <FindTourGuideTextContainer>
+            <Ionicons name="ios-search" size={24} color="#efefef" />
+            <Text medium>{"  "}Find a Tour Guide</Text>
+          </FindTourGuideTextContainer>
+          <Ionicons
+            name="ios-arrow-dropright-circle"
+            size={42}
+            color="#efefef"
+          />
+        </Button>
+        <PlacesContainer>
+          <Subtitle>
+            <Text small brown>
+              Popular Atrraction Places
+            </Text>
+            <SeeAll onPress={() => navigation.navigate("Explore")}>
+              <Text black>See all{"  "}</Text>
+              <Ionicons name="ios-arrow-forward" size={16} color="#000" />
+            </SeeAll>
+          </Subtitle>
+          <Carousel
+            data={popularPlaces}
+            renderItem={renderPlaces}
+            sliderWidth={vw(100)}
+            itemWidth={vw(78)}
+            layout={"stack"}
+            style={{ backgroundColor: "coral" }}
+          />
+        </PlacesContainer>
+        <RecommendedGuidesContainer>
+          <Subtitle>
+            <Text small brown>
+              Recomended Tour Guides
+            </Text>
+            <SeeAll onPress={() => navigation.navigate("TourScreen")}>
+              <Text black>See all{"  "}</Text>
+              <Ionicons name="ios-arrow-forward" size={16} color="#000" />
+            </SeeAll>
+          </Subtitle>
+          <Carousel
+            data={tourGuides}
+            renderItem={renderTourGuides}
+            sliderWidth={vw(100)}
+            itemWidth={180}
+            layout={"default"}
+            firstItem={1}
+          />
+        </RecommendedGuidesContainer>
+      </ScrollView>
     </Container>
   );
 };
 
 const SafeAreaView = styled.SafeAreaView`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const Container = styled.View`
@@ -178,8 +172,10 @@ const Container = styled.View`
   background-color: #f3f3f3ff;
 `;
 
+const ScrollView = styled.ScrollView``;
+
 const Banner = styled.View`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   height: 18%;
@@ -199,9 +195,17 @@ const Calendar = styled.Image`
   height: 40px;
 `;
 
+const FindTourGuideTextContainer = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Button = styled.TouchableOpacity`
-  margin: -30px 42px 20px 42px;
-  background-color: #ede3daff;
+  margin: -30px 0px 20px 0px;
+  width: ${vw(78)}px;
+  background-color: #76a5af;
+  align-self: center;
   padding: 1px 10px 1px 20px;
   border-radius: 100px;
   align-items: center;
@@ -210,9 +214,26 @@ const Button = styled.TouchableOpacity`
 `;
 
 const Subtitle = styled.View`
+  margin-left: 18px;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+`;
+
+const PlacesContainer = styled.View`
+  margin: 18px 0px 18px 0px;
+`;
+
+const PlaceContainer = styled.View`
+  height: ${vw(70)}px;
+  border-radius: 12px;
+  margin: 8px;
+`;
+
+const PlaceImage = styled.Image`
+  height: 80%;
+  width: 100%;
+  border-radius: 12px;
 `;
 
 const SeeAll = styled.TouchableOpacity`
@@ -226,17 +247,10 @@ const SeeAll = styled.TouchableOpacity`
 `;
 
 const RecommendedGuidesContainer = styled.View`
-  margin: 0px 0px 0px 18px;
+  margin-bottom: ${vh(15)}px;
 `;
 
-const RecommendedGuides = styled.ScrollView``;
-
 const RecommendedGuideContainer = styled.View`
-  flex-direction: row;
-  background-color: #ede3daff;
-  padding: 8px;
-  height: 140px;
-  width: 300px;
   border-radius: 12px;
   margin: 8px;
 `;
@@ -248,18 +262,21 @@ const RecommendedGuideImage = styled.Image`
 `;
 
 const Profile = styled.View`
+  background-color: #fff;
   align-items: center;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  padding: ${vh(1)}px ${vw(8)}px;
 `;
 
 const ProfileInfo = styled.View`
-  flex: 1;
-  padding: 8px;
-  margin-left: 24px;
-`;
-
-const InfoHeader = styled.View`
-  flex-direction: row;
-  justify-content: space-between;
+  margin-top: 3px;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: ${vw(1)}px;
+  background-color: #abd3c6;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 `;
 
 const FlagImage = styled.Image`
@@ -275,12 +292,7 @@ const TextContainer = styled.View`
   flex: 1;
 `;
 
-const SpeakingLanguageContainer = styled.View`
-  flex-direction: row;
-`;
-
 const RatingContainer = styled.View`
-  padding-top: 4px;
   flex-direction: row;
   align-items: center;
 `;
@@ -292,24 +304,9 @@ const Rating = styled.View`
   padding: 0px 4px;
 `;
 
-const PlacesContainer = styled.View`
-  margin: 18px 0px 18px 18px;
-`;
-
-const Places = styled.ScrollView``;
-
-const PlaceContainer = styled.View`
-  align-items: center;
-  height: 140px;
-  width: 300px;
-  border-radius: 12px;
-  margin: 8px;
-`;
-
-const PlaceImage = styled.Image`
-  height: 100%;
-  width: 100%;
-  border-radius: 12px;
+const NameContainer = styled.View`
+  height: 16px;
+  justify-content: center;
 `;
 
 const styles = StyleSheet.create({
@@ -323,24 +320,14 @@ const styles = StyleSheet.create({
     shadowRadius: 4.65,
     elevation: 7,
   },
-  shadowLevel1: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.18,
-    shadowRadius: 1.0,
-    elevation: 1,
-  },
   linearGradient: {
     flexDirection: "row",
     padding: 8,
     justifyContent: "center",
     alignItems: "center",
-    height: 38,
+    height: "38%",
     width: "100%",
-    borderRadius: 8,
-    marginTop: -30,
+    borderRadius: 12,
+    marginTop: -vw(14),
   },
 });
