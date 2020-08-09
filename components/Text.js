@@ -9,7 +9,7 @@ const Text = styled.Text`
   font-family: "Comfortaa_400Regular";
   color: ${(props) => props.color ?? "#ffffff"};
 
-  ${({ white, black, orange, grey }) => {
+  ${({ white, black, orange, grey, brown, green }) => {
     switch (true) {
       case grey:
         return `color: #999999`;
@@ -19,6 +19,10 @@ const Text = styled.Text`
         return `color: black`;
       case orange:
         return `color: #ff9900`;
+      case brown:
+        return `color: #674624`;
+      case green:
+        return `color: #45818e`;
     }
   }}
 
