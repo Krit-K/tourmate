@@ -16,9 +16,9 @@ export default EditProfileScreen = ({ navigation }) => {
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Banner>
           <BackButton onPress={() => navigation.goBack()}>
-            <Ionicons name="md-arrow-back" size={32} color="#f1b986" />
+            <Ionicons name="md-arrow-back" size={32} color="#76a5af" />
           </BackButton>
-          <Text title bold orange style={{ paddingLeft: vh(2) }}>
+          <Text title bold green style={{ paddingLeft: vh(2) }}>
             Edit Profile
           </Text>
         </Banner>
@@ -116,7 +116,7 @@ export default EditProfileScreen = ({ navigation }) => {
           </LowerMiddleContainer>
           <BottomContainer>
             <LogoutButton>
-              <Text orange style={{ alignSelf: "center" }}>
+              <Text green style={{ alignSelf: "center" }}>
                 LOGOUT
               </Text>
             </LogoutButton>
@@ -153,7 +153,7 @@ const BackButton = styled.TouchableOpacity`
 `;
 
 const BackgroundContainer = styled.View`
-  background-color: #ede3da;
+  background-color: #ece4dc;
   border-top-left-radius: 44px;
   border-top-right-radius: 44px;
   padding: 30px;

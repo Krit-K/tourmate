@@ -187,7 +187,7 @@ export default function App() {
 }
 
 const TabBarIconContainer = styled.View`
-  background-color: ${(props) => (props.focused ? "#f1b986ff" : "#f3f3f3ff")};
+  background-color: ${(props) => (props.focused ? "#abd3c6" : "#f3f3f3ff")};
   padding: 2px 16px;
   border-radius: 32px;
   align-items: center;

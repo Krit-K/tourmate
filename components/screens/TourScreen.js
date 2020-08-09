@@ -148,7 +148,7 @@ export default TourScreen = ({ navigation }) => {
               min={18}
               max={50}
               step={1}
-              customMarker={{ backgroundColor: "#f1b986" }}
+              customMarker={{ backgroundColor: "#abd3c6" }}
               selectedStyle={styles.selectedBar}
               unselectedStyle={styles.unselectedBar}
               markerStyle={styles.marker}
@@ -167,7 +167,7 @@ export default TourScreen = ({ navigation }) => {
               min={0}
               max={500}
               step={1}
-              customMarker={{ backgroundColor: "#f1b986" }}
+              customMarker={{ backgroundColor: "#abd3c6" }}
               selectedStyle={styles.selectedBar}
               unselectedStyle={styles.unselectedBar}
               markerStyle={styles.marker}
@@ -243,7 +243,7 @@ export default TourScreen = ({ navigation }) => {
 };
 
 const SafeAreaView = styled.SafeAreaView`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const TourGuidesContainer = styled.View`
@@ -252,7 +252,7 @@ const TourGuidesContainer = styled.View`
 `;
 
 const Banner = styled.View`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const SearchBar = styled.View`
@@ -343,7 +343,7 @@ const FilterButton = styled.TouchableOpacity`
 const Panel = styled.View`
   height: 600px;
   padding: 10px 20px;
-  background-color: #d9d9d99a;
+  background-color: #e9e9e9;
 `;
 
 const PanelHeader = styled.View`
@@ -365,7 +365,7 @@ const PanelHandle = styled.View`
 const ApplyFilterButton = styled.TouchableOpacity`
   margin-top: 20px;
   width: 85%;
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
   border-radius: 8px;
   padding: 7px 16px;
   align-items: center;
@@ -433,9 +433,9 @@ const styles = StyleSheet.create({
     height: 5,
   },
   pressedMarker: {
-    backgroundColor: "#f1b986",
+    backgroundColor: "#abd3c6",
     height: 30,
     width: 30,
   },
-  marker: { backgroundColor: "#f1b986", height: 20, width: 20 },
+  marker: { backgroundColor: "#abd3c6", height: 20, width: 20 },
 });

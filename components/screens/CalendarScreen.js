@@ -18,7 +18,7 @@ export default CalendarScreen = ({ navigation }) => {
       <StatusBar barStyle="default" />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
-          <Ionicons name="md-arrow-back" size={32} color="#f1b986" />
+          <Ionicons name="md-arrow-back" size={32} color="#abd3c6" />
         </BackButton>
         <Text title bold orange style={{ paddingLeft: 10 }}>
           Calendar
@@ -102,7 +102,7 @@ const UpcomingScheduleContainer = styled.View`
 
 const Button = styled.TouchableOpacity`
   padding: 2px 18px 2px 18px;
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
   border-radius: 100px;
   align-self: center;
 `;

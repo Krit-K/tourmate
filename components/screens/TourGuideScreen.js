@@ -150,7 +150,7 @@ const TourGuideProfileContainer = styled.View`
 const ScrollContainer = styled.ScrollView``;
 
 const Banner = styled.View`
-  background-color: #f1b986;
+  background-color: #abd3c6;
   border-radius: 8px;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
@@ -278,7 +278,7 @@ const BookingContainer = styled.View`
 `;
 
 const BookNowButton = styled.TouchableOpacity`
-  background-color: #f1b986;
+  background-color: #abd3c6;
   border-radius: 8px;
   align-items: center;
   justify-content: center;

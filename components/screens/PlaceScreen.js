@@ -216,7 +216,7 @@ const Rating = styled.View`
 `;
 
 const ViewProfile = styled.TouchableOpacity`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
   border-radius: 8px;
   align-items: center;
   justify-content: center;
