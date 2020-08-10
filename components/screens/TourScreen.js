@@ -47,7 +47,7 @@ const tourGuideItem = (tourGuide, navigation) => {
         </InfoHeader>
         <Text black>
           <Feather name="clock" size={18} color="#000" />{" "}
-          <Text medium orange>
+          <Text medium green>
             {tourGuide.category.price}
           </Text>{" "}
           THB per hr

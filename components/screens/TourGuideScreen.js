@@ -54,7 +54,7 @@ export default TourGuideScreen = ({ route, navigation }) => {
             </PlaceDescription>
             <BookingContainer>
               <Text black>~2hr 30min</Text>
-              <Text small orange>
+              <Text small green>
                 from 150 THB
               </Text>
               <BookNowButton>

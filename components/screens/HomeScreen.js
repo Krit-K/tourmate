@@ -5,12 +5,7 @@ import {
   widthPercentageToDP as vw,
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
-import {
-  Ionicons,
-  Feather,
-  MaterialIcons,
-  FontAwesome,
-} from "@expo/vector-icons";
+import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 import Carousel from "react-native-snap-carousel";
 import { LinearGradient } from "expo-linear-gradient";
@@ -238,7 +233,6 @@ const PlaceImage = styled.Image`
 
 const SeeAll = styled.TouchableOpacity`
   flex-direction: row;
-  background-color: #d5f3cdff;
   border-radius: 4px;
   align-items: center;
   justify-content: center;

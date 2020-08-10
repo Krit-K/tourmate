@@ -27,6 +27,9 @@ export default PlaceScreen = ({ route, navigation }) => {
       </BackButton>
       <StatusBar barStyle="light-content" />
       <ScrollContainer>
+        <PlacePhotoContainer>
+          <PlacePhoto source={place.cover} />
+        </PlacePhotoContainer>
         <BlurView
           tint={"light"}
           intensity={90}
@@ -37,9 +40,10 @@ export default PlaceScreen = ({ route, navigation }) => {
             marginLeft: 20,
             justifyContent: "center",
             zIndex: 100,
-            top: vh(19),
-            position: "absolute",
             borderRadius: 14,
+            marginTop: -80,
+            marginBottom: 10,
+            alignSelf: "flex-start",
           }}
         >
           <Text small black>
@@ -48,15 +52,13 @@ export default PlaceScreen = ({ route, navigation }) => {
           </Text>
           <FontAwesome5 name="bookmark" size={vh(2)} />
         </BlurView>
-        <PlacePhotoContainer>
-          <PlacePhoto source={place.cover} />
-        </PlacePhotoContainer>
-        <Description>
-          <Text black>{place.description}</Text>
-        </Description>
-
+        <DescriptionBackground>
+          <Description>
+            <Text black>{place.description}</Text>
+          </Description>
+        </DescriptionBackground>
         <AvailableTourGuidesContainer>
-          <Text black large>
+          <Text black medium>
             Available Tour Guides
           </Text>
           <TourGuidesSelection
@@ -121,7 +123,7 @@ export default PlaceScreen = ({ route, navigation }) => {
 };
 
 const PlaceContainer = styled.View`
-  background-color: #f3f3f3ff;
+  background-color: #ece4dc;
   flex: 1;
 `;
 
@@ -135,6 +137,12 @@ const PlacePhoto = styled.Image`
   width: 100%;
 `;
 
+const DescriptionBackground = styled.View`
+  background-color: #e7f5f0;
+  border-radius: 40px;
+  padding: 20px 0px;
+`;
+
 const BackButton = styled.TouchableOpacity`
   position: absolute;
   top: 28px;
@@ -142,30 +150,15 @@ const BackButton = styled.TouchableOpacity`
   padding: 10px 20px;
 `;
 
-const NameTab = styled.View`
-  position: absolute;
-  z-index: 10;
-  top: ${vh(24)}px;
-  flex-direction: row;
-  background-color: #ede3dadf;
-  align-self: flex-start;
-  height: 30px;
-  margin: -50px 0px 0px 20px;
-  border-radius: 100px;
-  padding: 0px 12px;
-  align-items: center;
-  justify-content: space-between;
-`;
-
 const Description = styled.View`
-  background-color: #ede3daff;
+  background-color: #fff;
   border-radius: 20px;
   padding: 12px 24px 24px 24px;
-  margin: -40px 0px 20px 0px;
+  margin: 0px 20px 0px 20px;
 `;
 
 const AvailableTourGuidesContainer = styled.View`
-  margin-top: 25px;
+  margin-top: 20px;
   background-color: #ede3daff;
   border-radius: 12px;
   padding: 20px;

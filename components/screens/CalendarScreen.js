@@ -18,9 +18,9 @@ export default CalendarScreen = ({ navigation }) => {
       <StatusBar barStyle="default" />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
-          <Ionicons name="md-arrow-back" size={32} color="#abd3c6" />
+          <Ionicons name="md-arrow-back" size={32} color="#76a5af" />
         </BackButton>
-        <Text title bold orange style={{ paddingLeft: 10 }}>
+        <Text title bold green style={{ paddingLeft: 10 }}>
           Calendar
         </Text>
       </Banner>

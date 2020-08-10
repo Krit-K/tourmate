@@ -95,7 +95,7 @@ const BackButton = styled.TouchableOpacity`
 `;
 
 const BackgroundContainer = styled.View`
-  background-color: #dfd6cd;
+  background-color: #ece4dc;
   border-top-left-radius: 44px;
   border-top-right-radius: 44px;
   padding: 30px;
