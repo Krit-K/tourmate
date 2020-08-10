@@ -23,8 +23,7 @@ export default places = [
   {
     id: 3,
     title: "Damneon Saduak Floating Market",
-    teaser:
-      "It is often considered the most famous floating market in Thailand",
+    teaser: "Considered the most famous floating market in Thailand",
     description:
       "Damnoen Saduak Floating Market consists of a maze of narrow khlongs (canals). Female traders, often wearing traditional mo hom apparel (blue farmers' shirts) with wide-brimmed straw hats (ngob) use sampans (small wooden boats) to sell their wares, often produce. These boats are often full of vegetables and colorful fruits that are photogenic, and these images are used for tourism promotion.",
     rating: 4.9,

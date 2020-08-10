@@ -43,7 +43,7 @@ export default MessageScreen = ({ navigation }) => {
 };
 
 const SafeAreaView = styled.SafeAreaView`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const PlaceContainer = styled.View`
@@ -52,7 +52,7 @@ const PlaceContainer = styled.View`
 `;
 
 const Banner = styled.View`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const SearchBar = styled.View`
@@ -79,7 +79,7 @@ const MessageImage = styled.Image`
 const Button = styled.TouchableOpacity`
   margin-top: 20px;
   padding: ${vh(1)}px ${vw(4)}px;
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
   border-radius: 100px;
   align-self: center;
 `;

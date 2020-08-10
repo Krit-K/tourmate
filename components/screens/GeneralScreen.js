@@ -13,9 +13,9 @@ export default GeneralScreen = ({ navigation }) => {
       <StatusBar barStyle="default" />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
-          <Ionicons name="md-arrow-back" size={32} color="#f1b986" />
+          <Ionicons name="md-arrow-back" size={32} color="#76a5af" />
         </BackButton>
-        <Text title bold orange style={{ paddingLeft: 10 }}>
+        <Text title bold green style={{ paddingLeft: 10 }}>
           General
         </Text>
       </Banner>
@@ -95,7 +95,7 @@ const BackButton = styled.TouchableOpacity`
 `;
 
 const BackgroundContainer = styled.View`
-  background-color: #ede3da;
+  background-color: #ece4dc;
   border-top-left-radius: 44px;
   border-top-right-radius: 44px;
   padding: 30px;

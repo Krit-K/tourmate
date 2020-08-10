@@ -129,7 +129,7 @@ export default ExploreScreen = ({ navigation }) => {
 };
 
 const SafeAreaView = styled.SafeAreaView`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const Container = styled.View`
@@ -138,7 +138,7 @@ const Container = styled.View`
 `;
 
 const Banner = styled.View`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const SearchBar = styled.View`
@@ -164,8 +164,8 @@ const Category = styled.TouchableOpacity`
   align-items: center;
   margin: 0 10px;
   padding: 5px 10px;
-  background-color: ${(props) => (props.selected ? "#f1b986ff" : "#f3f3f3ff")};
-  border-color: #f1b986ff;
+  background-color: ${(props) => (props.selected ? "#b0c9e4" : "#f3f3f3ff")};
+  border-color: #b0c9e4;
   border-width: 1px;
   border-radius: 20px;
 `;

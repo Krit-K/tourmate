@@ -78,7 +78,7 @@ export default MeScreen = ({ navigation }) => {
       <ButtonContainer>
         <ButtonColumn>
           <Button onPress={() => navigation.navigate("GeneralScreen")}>
-            <FontAwesome name="sliders" size={vw(8)} color="black" />
+            <FontAwesome name="sliders" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
                 General
@@ -86,7 +86,7 @@ export default MeScreen = ({ navigation }) => {
             </TextContainer>
           </Button>
           <Button>
-            <Feather name="map-pin" size={vw(8)} color="black" />
+            <Feather name="map-pin" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
                 Visited Place
@@ -94,7 +94,7 @@ export default MeScreen = ({ navigation }) => {
             </TextContainer>
           </Button>
           <Button>
-            <Octicons name="gift" size={vw(9)} color="black" />
+            <Octicons name="gift" size={vh(4)} color="black" />
 
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
@@ -105,7 +105,7 @@ export default MeScreen = ({ navigation }) => {
         </ButtonColumn>
         <ButtonColumn>
           <Button onPress={() => navigation.navigate("EditProfileScreen")}>
-            <SimpleLineIcons name="settings" size={vw(8)} color="black" />
+            <SimpleLineIcons name="settings" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
                 Edit Profile
@@ -113,7 +113,7 @@ export default MeScreen = ({ navigation }) => {
             </TextContainer>
           </Button>
           <Button>
-            <SimpleLineIcons name="phone" size={vw(8)} color="black" />
+            <SimpleLineIcons name="phone" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: vw(4) }}>
                 Useful Contacts
@@ -121,7 +121,7 @@ export default MeScreen = ({ navigation }) => {
             </TextContainer>
           </Button>
           <Button>
-            <SimpleLineIcons name="question" size={vw(8)} color="black" />
+            <SimpleLineIcons name="question" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
                 About Us
@@ -135,7 +135,7 @@ export default MeScreen = ({ navigation }) => {
 };
 
 const SafeAreaView = styled.SafeAreaView`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
 `;
 
 const PlaceContainer = styled.View`
@@ -144,7 +144,7 @@ const PlaceContainer = styled.View`
 `;
 
 const Banner = styled.View`
-  background-color: #f1b986ff;
+  background-color: #abd3c6;
   border-bottom-left-radius: 38px;
   border-bottom-right-radius: 38px;
   height: 65%;
@@ -198,7 +198,7 @@ const FavouriteGuide = styled.TouchableOpacity`
 `;
 
 const FavouriteGuideInfo = styled.View`
-  background-color: #ede3daff;
+  background-color: #e7f5f0ff;
   border-bottom-left-radius: ${vw(6)}px;
   border-bottom-right-radius: ${vw(6)}px;
   height: 20%;
@@ -260,7 +260,7 @@ const Button = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: #ede3daff;
+  background-color: #ece4dcff;
   padding: 10px;
   border-radius: 10px;
   margin: 6px;
