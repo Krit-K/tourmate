@@ -93,9 +93,8 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button>
+          <Button onPress={() => navigation.navigate("InviteScreen")}>
             <Octicons name="gift" size={vh(4)} color="black" />
-
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
                 Refer a Friend
@@ -198,7 +197,7 @@ const FavouriteGuide = styled.TouchableOpacity`
 `;
 
 const FavouriteGuideInfo = styled.View`
-  background-color: #e7f5f0ff;
+  background-color: #e3f2f5;
   border-bottom-left-radius: ${vw(6)}px;
   border-bottom-right-radius: ${vw(6)}px;
   height: 20%;
@@ -260,7 +259,7 @@ const Button = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  background-color: #ece4dcff;
+  background-color: #ece4dc;
   padding: 10px;
   border-radius: 10px;
   margin: 6px;

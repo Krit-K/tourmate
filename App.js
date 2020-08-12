@@ -28,6 +28,7 @@ import TourGuideScreen from "./components/screens/TourGuideScreen";
 import CalendarScreen from "./components/screens/CalendarScreen";
 import GeneralScreen from "./components/screens/GeneralScreen";
 import EditProfileScreen from "./components/screens/EditProfileScreen";
+import InviteScreen from "./components/screens/InviteScreen";
 
 import Text from "./components/Text";
 
@@ -175,6 +176,15 @@ export default function App() {
         <AppStack.Screen
           name="EditProfileScreen"
           component={EditProfileScreen}
+          options={{
+            gestureEnabled: "true",
+            gestureDirection: "horizontal",
+            ...TransitionPresets.FadeFromBottomAndroid,
+          }}
+        />
+        <AppStack.Screen
+          name="InviteScreen"
+          component={InviteScreen}
           options={{
             gestureEnabled: "true",
             gestureDirection: "horizontal",

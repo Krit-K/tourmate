@@ -2,7 +2,7 @@ export default places = [
   {
     id: 1,
     title: "China Town",
-    teaser: "Where all souvenirs, foods, markets located",
+    teaser: "Where all souvenirs, foods and markets are located",
     description:
       "Chinatown is packed with street stalls and restaurants the choice of places to eat will be endless, nowhere else in Bangkok will you get to try as many different kinds of Chinese food as you stroll along.",
     rating: 4.7,

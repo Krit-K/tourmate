@@ -164,8 +164,8 @@ const Category = styled.TouchableOpacity`
   align-items: center;
   margin: 0 10px;
   padding: 5px 10px;
-  background-color: ${(props) => (props.selected ? "#b0c9e4" : "#f3f3f3ff")};
-  border-color: #b0c9e4;
+  background-color: ${(props) => (props.selected ? "#76a5af" : "#f3f3f3ff")};
+  border-color: #76a5af;
   border-width: 1px;
   border-radius: 20px;
 `;

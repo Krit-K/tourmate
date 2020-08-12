@@ -79,7 +79,7 @@ const MessageImage = styled.Image`
 const Button = styled.TouchableOpacity`
   margin-top: 20px;
   padding: ${vh(1)}px ${vw(4)}px;
-  background-color: #abd3c6;
+  background-color: #76a5af;
   border-radius: 100px;
   align-self: center;
 `;
