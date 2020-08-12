@@ -11,9 +11,9 @@ import Text from "../Text";
 
 export default InviteScreen = ({ navigation }) => {
   const referralSteps = [
-    "1. Invite a friend",
-    "2. Your friend uses a tour Guide Service",
-    "3. You and your friend get 20% off next meetup",
+    "1. Invite a friend to the app",
+    "2. Your friend uses a tour guide service",
+    "3. You and your friend get 20% off next service",
   ];
   return (
     <PlaceContainer>
@@ -29,11 +29,18 @@ export default InviteScreen = ({ navigation }) => {
         </Text>
       </Header>
       <TopArea>
-        <Text medium>Know a friend who would enjoy travelling?</Text>
-        <Text medium>Refer a friend and get discounts!</Text>
+        <TextContainer>
+          <Text medium>Know a friend who would enjoy travelling?</Text>
+          <Text medium style={{ marginTop: vh(2) }}>
+            Refer a friend and get discounts!
+          </Text>
+        </TextContainer>
         <InviteStepsScroll
           horizontal={true}
           showsHorizontalScrollIndicator={false}
+          decelerationRate={0}
+          snapToInterval={vw(83.3)}
+          snapToAlignment={"center"}
         >
           {referralSteps.map((step, index) => {
             return (
@@ -44,6 +51,7 @@ export default InviteScreen = ({ navigation }) => {
               </StepContainer>
             );
           })}
+          <EndingWall />
         </InviteStepsScroll>
       </TopArea>
       <InviteButton>
@@ -61,7 +69,7 @@ export default InviteScreen = ({ navigation }) => {
         </Text>
         <InviteRecords>
           <SucessfulInvites>
-            <Text green>SucessfulInvites</Text>
+            <Text green>Sucessful Invites</Text>
             <Text green medium>
               0
             </Text>
@@ -112,22 +120,32 @@ const Header = styled.View`
 `;
 
 const TopArea = styled.View`
-  height: 40%;
+  height: 33%;
 `;
 
 const InviteStepsScroll = styled.ScrollView`
-  margin-left: ${vw(10)}px;
+  flex: 2;
+`;
+
+const TextContainer = styled.View`
+  padding: ${vh(1)}px ${vw(10)}px;
+  flex: 1;
 `;
 
 const StepContainer = styled.View`
   background-color: #fff;
   border-radius: ${vw(6)}px;
-  margin-right: ${vh(2)}px;
+  margin-left: ${vw(10)}px;
   padding: ${vh(2)}px;
   justify-content: center;
   align-items: center;
-  height: 40%;
-  width: 25%;
+  width: ${vw(70)}px;
+  height: 70%;
+  align-self: center;
+`;
+
+const EndingWall = styled.View`
+  width: ${vw(10)}px;
 `;
 
 const InviteButton = styled.TouchableOpacity`
@@ -139,6 +157,7 @@ const InviteButton = styled.TouchableOpacity`
   width: 80%;
   height: ${vh(8)}px;
   border-radius: ${vw(5)}px;
+  margin-top: ${vh(4)}px;
 `;
 
 const TrackInviteContainer = styled.View`
@@ -171,10 +190,4 @@ const MoneySaved = styled.View`
   margin: 2px;
   border-radius: ${vw(1)}px;
   flex: 1;
-`;
-
-const TextContainer = styled.View`
-  flex: 1;
-  flex-grow: 1;
-  width: 0;
 `;
