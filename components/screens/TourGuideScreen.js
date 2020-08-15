@@ -53,7 +53,9 @@ export default TourGuideScreen = ({ route, navigation }) => {
               <Text black>{tourGuide.tourPlaces[place.title]}</Text>
             </PlaceDescription>
             <BookingContainer>
-              <Text black>~2hr 30min</Text>
+              <Text small black>
+                ~2hr 30min
+              </Text>
               <Text small green>
                 from 150 THB
               </Text>
