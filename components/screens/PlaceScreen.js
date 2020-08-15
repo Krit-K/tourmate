@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import { StatusBar } from "react-native";
 import styled from "styled-components";
-import { heightPercentageToDP as vh } from "react-native-responsive-screen";
+import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
 import { FontAwesome5, Ionicons, FontAwesome } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 
@@ -19,7 +22,6 @@ export default PlaceScreen = ({ route, navigation }) => {
   const changeSelection = (guide) => {
     setSelectedGuide(guide);
   };
-
   return (
     <PlaceContainer>
       <BackButton onPress={() => navigation.goBack()}>
@@ -27,8 +29,16 @@ export default PlaceScreen = ({ route, navigation }) => {
       </BackButton>
       <StatusBar barStyle="light-content" />
       <ScrollContainer>
-        <PlacePhotoContainer>
-          <PlacePhoto source={place.cover} />
+        <PlacePhotoContainer
+          horizontal={true}
+          showsHorizontalScrollIndicator={false}
+          decelerationRate={0}
+          snapToInterval={vw(100)}
+          snapToAlignment={"center"}
+        >
+          {place.photos.map((photo, index) => {
+            return <PlacePhoto source={photo} key={index} />;
+          })}
         </PlacePhotoContainer>
         <BlurView
           tint={"light"}
@@ -129,12 +139,11 @@ const PlaceContainer = styled.View`
 
 const ScrollContainer = styled.ScrollView``;
 
-const PlacePhotoContainer = styled.View`
-  position: relative;
-`;
+const PlacePhotoContainer = styled.ScrollView``;
+
 const PlacePhoto = styled.Image`
   height: 250px;
-  width: 100%;
+  width: ${vw(100)}px;
 `;
 
 const DescriptionBackground = styled.View`
