@@ -7,7 +7,12 @@ export default places = [
       "Chinatown is packed with street stalls and restaurants the choice of places to eat will be endless, nowhere else in Bangkok will you get to try as many different kinds of Chinese food as you stroll along.",
     rating: 4.7,
     category: ["Shopping", "Bars", "Restaurants"],
-    cover: require("./assets/chinatown1.jpg"),
+    cover: require("./assets/places/chinatown1.jpg"),
+    photos: [
+      require("./assets/places/chinatown1.jpg"),
+      require("./assets/places/chinatown2.jpeg"),
+      require("./assets/places/chinatown3.jpeg"),
+    ],
   },
 
   {
@@ -18,7 +23,12 @@ export default places = [
       "Royal Palace is packed with street stalls and restaurants the choice of places to eat will be endless, nowhere else in Bangkok will you get to try as many different kinds of Chinese food as you stroll along.",
     rating: 4.9,
     category: ["Historical"],
-    cover: require("./assets/royalPalace1.jpg"),
+    cover: require("./assets/places/royalPalace1.jpg"),
+    photos: [
+      require("./assets/places/royalPalace1.jpg"),
+      require("./assets/places/royalPalace2.jpeg"),
+      require("./assets/places/royalPalace3.jpeg"),
+    ],
   },
   {
     id: 3,
@@ -28,7 +38,12 @@ export default places = [
       "Damnoen Saduak Floating Market consists of a maze of narrow khlongs (canals). Female traders, often wearing traditional mo hom apparel (blue farmers' shirts) with wide-brimmed straw hats (ngob) use sampans (small wooden boats) to sell their wares, often produce. These boats are often full of vegetables and colorful fruits that are photogenic, and these images are used for tourism promotion.",
     rating: 4.9,
     category: ["Historical", "Restaurants", "Shopping", "Nature"],
-    cover: require("./assets/damnoenSaduakFloatingMarket.jpg"),
+    cover: require("./assets/places/damnoenSaduakFloatingMarket.jpg"),
+    photos: [
+      require("./assets/places/damnoenSaduakFloatingMarket.jpg"),
+      require("./assets/places/damnoenSaduakFloatingMarket2.jpeg"),
+      require("./assets/places/damnoenSaduakFloatingMarket3.jpeg"),
+    ],
   },
   {
     id: 4,
@@ -39,7 +54,12 @@ export default places = [
       "This cafe has absolutely the most adorable decorations with many species of dogs. The atmosphere here is relaxed and cozy, and the dogs are very sociable and friendly. Not only can you spend time with the dogs but also enjoy taking cute photos with these furry little creatures in this huge area. Sometimes, the staff will let the dogs go outside to the lawn to enjoy the fresh air!",
     rating: 4.3,
     category: ["Cafe"],
-    cover: require("./assets/dogInTownAri.jpeg"),
+    cover: require("./assets/places/dogInTownAri.jpeg"),
+    photos: [
+      require("./assets/places/dogInTownAri.jpeg"),
+      require("./assets/places/dogInTownAri2.jpg"),
+      require("./assets/places/dogInTownAri3.jpg"),
+    ],
   },
   {
     id: 5,
@@ -49,7 +69,12 @@ export default places = [
       "This cafe has absolutely the most adorable decorations with many species of dogs. The atmosphere here is relaxed and cozy, and the dogs are very sociable and friendly. Not only can you spend time with the dogs but also enjoy taking cute photos with these furry little creatures in this huge area. Sometimes, the staff will let the dogs go outside to the lawn to enjoy the fresh air!",
     rating: 4.1,
     category: ["Restaurants", "Bars"],
-    cover: require("./assets/baiyokeTower.jpg"),
+    cover: require("./assets/places/baiyokeTower.jpg"),
+    photos: [
+      require("./assets/places/baiyokeTower.jpg"),
+      require("./assets/places/baiyokeTower2.jpeg"),
+      require("./assets/places/baiyokeTower3.jpeg"),
+    ],
   },
   {
     id: 6,
@@ -59,7 +84,12 @@ export default places = [
       "Suan Luang Rama IX, also referred to as Rama IX Park, is a public park in Bangkok's Prawet District. With an area of 500 rai, it is the largest park in the city. The park was built to celebrate King Bhumibol Adulyadej's sixtieth birthday in 1987, and was opened by the King on 1 December that year.",
     rating: 4.5,
     category: ["Nature", "Historical"],
-    cover: require("./assets/kingRamaIXPark.jpg"),
+    cover: require("./assets/places/kingRamaIXPark.jpg"),
+    photos: [
+      require("./assets/places/kingRamaIXPark.jpg"),
+      require("./assets/places/kingRamaIXPark2.jpg"),
+      require("./assets/places/kingRamaIXPark3.jpg"),
+    ],
   },
   {
     id: 7,
@@ -70,6 +100,11 @@ export default places = [
       "Taco Lake is about 40 minutes away from the city centre and near Suvarnabhumi Airport and it's one of the best places to do wakeboarding in Bangkok.",
     rating: 4.2,
     category: ["Sports"],
-    cover: require("./assets/tacoPark.jpg"),
+    cover: require("./assets/places/tacoPark.jpg"),
+    photos: [
+      require("./assets/places/tacoPark.jpg"),
+      require("./assets/places/tacoPark2.jpg"),
+      require("./assets/places/tacoPark3.jpg"),
+    ],
   },
 ];
