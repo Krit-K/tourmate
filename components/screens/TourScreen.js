@@ -62,6 +62,8 @@ const tourGuideItem = (tourGuide, navigation) => {
 };
 
 export default TourScreen = ({ navigation }) => {
+  let bottomSheet = React.createRef();
+
   const [searchInput, setSearchInput] = useState("");
   const updateSearchInput = (input) => setSearchInput(input);
 
@@ -76,6 +78,17 @@ export default TourScreen = ({ navigation }) => {
 
   const [price, setPrice] = React.useState([100, 350]);
   const changePrice = (values) => setPrice(values);
+
+  const [isFilterSheetOpen, setIsFilterSheetOpen] = React.useState(false);
+  const toggleFilterSheetOpen = () => {
+    if (isFilterSheetOpen) {
+      setIsFilterSheetOpen(false);
+      bottomSheet.current.snapTo(1);
+    } else {
+      setIsFilterSheetOpen(true);
+      bottomSheet.current.snapTo(0);
+    }
+  };
 
   const convertIndexToGender = (index) => {
     switch (index) {
@@ -92,8 +105,6 @@ export default TourScreen = ({ navigation }) => {
   // Arguments: [gender, min age, max age, min price, max price]
   const [filters, setFilters] = React.useState(["", 18, 50, 100, 350]);
   const changeFilters = (values) => setFilters(values);
-
-  let bottomSheet = React.createRef();
 
   const clearFilters = () => {
     updateButtonIndex(2);
@@ -179,6 +190,7 @@ export default TourScreen = ({ navigation }) => {
             onPress={() => {
               bottomSheet.current.snapTo(1);
               changeFilters([gender, age[0], age[1], price[0], price[1]]);
+              setIsFilterSheetOpen(false);
             }}
           >
             <Text black>Apply Filter</Text>
@@ -210,7 +222,7 @@ export default TourScreen = ({ navigation }) => {
           </BackButton>
         </Banner>
 
-        <FilterButton onPress={() => bottomSheet.current.snapTo(0)}>
+        <FilterButton onPress={() => toggleFilterSheetOpen()}>
           <Text small>Filter{"  "}</Text>
           <FontAwesome name="filter" size={16} color="white" />
         </FilterButton>
