@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { Ionicons, Entypo } from "@expo/vector-icons";
 import {
   widthPercentageToDP as vw,
   heightPercentageToDP as vh,
@@ -33,7 +33,9 @@ export default MessageScreen = ({ navigation }) => {
             <Ionicons name="ios-search" size={24} color="#5a5757" />
           </SearchBar>
         </Banner>
-        <MessageImage source={noMessages} />
+        <MessageIconContainer>
+          <Entypo name="chat" size={vw(33)} color="#999999" />
+        </MessageIconContainer>
         <Button onPress={() => navigation.navigate("TourScreen")}>
           <Text large> Find a Tour Guide </Text>
         </Button>
@@ -69,16 +71,14 @@ const SearchInput = styled.TextInput`
   flex: 1;
 `;
 
-const MessageImage = styled.Image`
-  margin-top: 100px;
-  width: ${vh(22)}px;
-  height: ${vh(22)}px;
+const MessageIconContainer = styled.View`
   align-self: center;
+  margin-top: ${vh(15)}px;
 `;
 
 const Button = styled.TouchableOpacity`
   margin-top: 20px;
-  padding: ${vh(1)}px ${vw(4)}px;
+  padding: ${vh(0.8)}px ${vw(4)}px;
   background-color: #76a5af;
   border-radius: 100px;
   align-self: center;
