@@ -1,37 +1,42 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from "react-native";
-import { Ionicons, Entypo } from "@expo/vector-icons";
+import { Entypo } from "@expo/vector-icons";
 import {
   widthPercentageToDP as vw,
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
-
-import noMessages from "../../assets/noMessages.png";
+import { SearchBar } from "react-native-elements";
 import Text from "../Text";
 
 export default MessageScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");
-  const [placeHolderText, setPlaceHolderText] = useState("Search Chat");
   const updateSearchInput = (input) => setSearchInput(input);
-  const updatePlaceHolderText = (input) => setPlaceHolderText(input);
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <PlaceContainer>
         <SafeAreaView />
         <StatusBar />
         <Banner>
-          <SearchBar>
-            <SearchInput
-              placeholder={placeHolderText}
-              placeholderTextColor="#5a5757"
-              onFocus={() => updatePlaceHolderText("")}
-              onChangeText={updateSearchInput}
-              value={searchInput}
-              onEndEditing={() => updatePlaceHolderText("Search Chat")}
-            />
-            <Ionicons name="ios-search" size={24} color="#5a5757" />
-          </SearchBar>
+          <SearchBar
+            placeholder={"Search Chat"}
+            onChangeText={updateSearchInput}
+            searchIcon={{ size: 25 }}
+            lightTheme
+            value={searchInput}
+            inputContainerStyle={{
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              height: 38,
+              borderRadius: 10,
+            }}
+            containerStyle={{
+              paddingHorizontal: vw(8),
+              paddingVertical: vh(2),
+              backgroundColor: "#abd3c6",
+              borderBottomColor: "transparent",
+              borderTopColor: "transparent",
+            }}
+          />
         </Banner>
         <MessageIconContainer>
           <Entypo name="chat" size={vw(33)} color="#999999" />
@@ -55,20 +60,6 @@ const PlaceContainer = styled.View`
 
 const Banner = styled.View`
   background-color: #abd3c6;
-`;
-
-const SearchBar = styled.View`
-  margin: 30px 38px 18px 48px;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 6px 10px 6px 18px;
-  border-radius: 8px;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const SearchInput = styled.TextInput`
-  font-size: 18px;
-  flex: 1;
 `;
 
 const MessageIconContainer = styled.View`
