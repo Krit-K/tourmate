@@ -27,7 +27,11 @@ export default PlaceScreen = ({ route, navigation }) => {
       <BackButton onPress={() => navigation.goBack()}>
         <Ionicons name="md-arrow-back" size={32} color="#ffffff" />
       </BackButton>
-      <StatusBar barStyle="light-content" />
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <ScrollContainer>
         <PlacePhotoContainer
           horizontal={true}

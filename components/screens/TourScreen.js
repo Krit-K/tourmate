@@ -23,6 +23,7 @@ import BottomSheet from "reanimated-bottom-sheet";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
 
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 import tourGuides from "../../tourGuideData";
 
 const tourGuideItem = (tourGuide, navigation) => {
@@ -204,8 +205,8 @@ export default TourScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <TourGuidesContainer>
-        <SafeAreaView />
-        <StatusBar />
+        <SafeAreaView green />
+        <StatusBar translucent backgroundColor="transparent" />
         <Banner>
           <SearchBar
             placeholder={"Search Tour Guide"}
@@ -263,10 +264,6 @@ export default TourScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
 
 const TourGuidesContainer = styled.View`
   background-color: #f3f3f3ff;

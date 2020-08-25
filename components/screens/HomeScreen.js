@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar, TouchableWithoutFeedback, StyleSheet } from "react-native";
 import styled from "styled-components";
 import {
@@ -7,14 +7,17 @@ import {
 } from "react-native-responsive-screen";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
-import Carousel from "react-native-snap-carousel";
+import Carousel, { Pagination } from "react-native-snap-carousel";
 import { LinearGradient } from "expo-linear-gradient";
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 import places from "../../exploreData";
 import tourGuides from "../../tourGuideData";
 
 export default HomeScreen = ({ navigation }) => {
-  const popularPlaces = places.filter((place) => place.rating > 4.6);
+  const [placeActiveSlide, setPlaceActiveSlide] = useState(0);
+  const [guideActiveSlide, setGuideActiveSlide] = useState(1);
+  const popularPlaces = places.filter((place) => place.rating > 4.2);
   const renderPlaces = (place, index) => {
     return (
       <TouchableWithoutFeedback
@@ -83,9 +86,13 @@ export default HomeScreen = ({ navigation }) => {
 
   return (
     <Container>
-      <StatusBar barStyle="light-content" />
+      <StatusBar
+        barStyle="light-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-        <SafeAreaView />
+        <SafeAreaView green />
         <Banner>
           <Header>
             <Text large brown>
@@ -132,6 +139,27 @@ export default HomeScreen = ({ navigation }) => {
             itemWidth={vw(78)}
             layout={"stack"}
             style={{ backgroundColor: "coral" }}
+            onSnapToItem={(index) => setPlaceActiveSlide(index)}
+          />
+          <Pagination
+            dotsLength={popularPlaces.length}
+            activeDotIndex={placeActiveSlide}
+            containerStyle={{
+              backgroundColor: "#f3f3f3ff",
+              paddingVertical: 0,
+            }}
+            dotStyle={{
+              width: 10,
+              height: 10,
+              borderRadius: 5,
+              marginHorizontal: 2,
+              backgroundColor: "#abd3c6",
+            }}
+            inactiveDotStyle={{
+              backgroundColor: "#999",
+            }}
+            inactiveDotOpacity={0.4}
+            inactiveDotScale={0.6}
           />
         </PlacesContainer>
         <RecommendedGuidesContainer>
@@ -151,16 +179,33 @@ export default HomeScreen = ({ navigation }) => {
             itemWidth={180}
             layout={"default"}
             firstItem={1}
+            onSnapToItem={(index) => setGuideActiveSlide(index)}
+          />
+          <Pagination
+            dotsLength={tourGuides.length}
+            activeDotIndex={guideActiveSlide}
+            containerStyle={{
+              backgroundColor: "#f3f3f3ff",
+              paddingVertical: vh(0.7),
+            }}
+            dotStyle={{
+              width: 10,
+              height: 10,
+              borderRadius: 5,
+              marginHorizontal: 2,
+              backgroundColor: "#abd3c6",
+            }}
+            inactiveDotStyle={{
+              backgroundColor: "#999",
+            }}
+            inactiveDotOpacity={0.4}
+            inactiveDotScale={0.6}
           />
         </RecommendedGuidesContainer>
       </ScrollView>
     </Container>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
 
 const Container = styled.View`
   flex: 1;
@@ -173,7 +218,7 @@ const Banner = styled.View`
   background-color: #abd3c6;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
-  height: 18%;
+  height: 17%;
 `;
 
 const Header = styled.View`
@@ -197,7 +242,7 @@ const FindTourGuideTextContainer = styled.View`
 `;
 
 const Button = styled.TouchableOpacity`
-  margin: -30px 0px 20px 0px;
+  margin: -30px 0px 4px 0px;
   width: ${vw(78)}px;
   background-color: #76a5af;
   align-self: center;
@@ -241,7 +286,7 @@ const SeeAll = styled.TouchableOpacity`
 `;
 
 const RecommendedGuidesContainer = styled.View`
-  margin-bottom: ${vh(15)}px;
+  margin-bottom: ${vh(8)}px;
 `;
 
 const RecommendedGuideContainer = styled.View`

@@ -8,6 +8,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 
 export default InviteScreen = ({ navigation }) => {
   const referralSteps = [
@@ -17,8 +18,8 @@ export default InviteScreen = ({ navigation }) => {
   ];
   return (
     <PlaceContainer>
-      <SafeAreaView />
-      <StatusBar />
+      <SafeAreaView green />
+      <StatusBar translucent backgroundColor="transparent" />
       <Banner />
       <Header>
         <BackButton onPress={() => navigation.goBack()}>
@@ -85,10 +86,6 @@ export default InviteScreen = ({ navigation }) => {
     </PlaceContainer>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3ff;

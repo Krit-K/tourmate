@@ -15,12 +15,13 @@ import {
 import profileImage from "../../assets/jennie.png";
 import tourGuides from "../../tourGuideData";
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 
 export default MeScreen = ({ navigation }) => {
   return (
     <PlaceContainer>
-      <SafeAreaView />
-      <StatusBar />
+      <SafeAreaView green />
+      <StatusBar translucent backgroundColor="transparent" />
       <Banner />
       <TopArea>
         <Header>
@@ -132,10 +133,6 @@ export default MeScreen = ({ navigation }) => {
     </PlaceContainer>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3ff;

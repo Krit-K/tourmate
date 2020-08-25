@@ -5,6 +5,7 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Calendar } from "react-native-calendars";
 
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 
 export default CalendarScreen = ({ navigation }) => {
   const currentDay = new Date().getDate().toString().padStart(2, "0");
@@ -15,7 +16,11 @@ export default CalendarScreen = ({ navigation }) => {
   return (
     <PlaceContainer>
       <SafeAreaView />
-      <StatusBar barStyle="default" />
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
           <Ionicons name="md-arrow-back" size={32} color="#76a5af" />
@@ -57,10 +62,6 @@ export default CalendarScreen = ({ navigation }) => {
     </PlaceContainer>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #f3f3f3;
-`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3;

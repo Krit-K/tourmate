@@ -8,6 +8,7 @@ import {
 } from "react-native-responsive-screen";
 import { SearchBar } from "react-native-elements";
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 
 export default MessageScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -15,8 +16,8 @@ export default MessageScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <PlaceContainer>
-        <SafeAreaView />
-        <StatusBar />
+        <SafeAreaView green />
+        <StatusBar translucent backgroundColor="transparent" />
         <Banner>
           <SearchBar
             placeholder={"Search Chat"}
@@ -48,10 +49,6 @@ export default MessageScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3ff;

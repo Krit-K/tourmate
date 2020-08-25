@@ -1,20 +1,16 @@
 import React, { useState, useRef } from "react";
-import {
-  StatusBar,
-  TouchableWithoutFeedback,
-  Keyboard,
-  View,
-} from "react-native";
+import { StatusBar, TouchableWithoutFeedback, Keyboard } from "react-native";
 import styled from "styled-components";
 import {
   widthPercentageToDP as vw,
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { FontAwesome } from "@expo/vector-icons";
 
 import { SearchBar } from "react-native-elements";
 import { LinearGradient } from "expo-linear-gradient";
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 import categoryList from "../../categories";
 import places from "../../exploreData";
 
@@ -83,8 +79,12 @@ export default ExploreScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
-        <SafeAreaView />
-        <StatusBar barStyle="light-content" />
+        <SafeAreaView green />
+        <StatusBar
+          barStyle="light-content"
+          translucent
+          backgroundColor="transparent"
+        />
         <Banner>
           <SearchBar
             placeholder={"Search Attraction Places"}
@@ -141,10 +141,6 @@ export default ExploreScreen = ({ navigation }) => {
     </TouchableWithoutFeedback>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
 
 const Container = styled.View`
   flex: 1;

@@ -5,12 +5,17 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 
 export default GeneralScreen = ({ navigation }) => {
   return (
     <PlaceContainer>
       <SafeAreaView />
-      <StatusBar barStyle="default" />
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <Banner>
         <BackButton onPress={() => navigation.goBack()}>
           <Ionicons name="md-arrow-back" size={32} color="#76a5af" />
@@ -70,10 +75,6 @@ export default GeneralScreen = ({ navigation }) => {
     </PlaceContainer>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #f3f3f3;
-`;
 
 const PlaceContainer = styled.View`
   background-color: #f3f3f3;
