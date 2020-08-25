@@ -114,11 +114,13 @@ export default ExploreScreen = ({ navigation }) => {
                 selected={selectedCategory === category ? true : false}
                 onPress={() => changeCategory(category)}
               >
-                <CategoryName
-                  selected={selectedCategory === category ? true : false}
-                >
-                  {category}
-                </CategoryName>
+                <CategoryTextContainer>
+                  <CategoryName
+                    selected={selectedCategory === category ? true : false}
+                  >
+                    {category}
+                  </CategoryName>
+                </CategoryTextContainer>
               </Category>
             );
           })}
@@ -171,6 +173,11 @@ const Category = styled.TouchableOpacity`
 const CategoryName = styled(Text)`
   color: ${(props) => (props.selected ? "#fff" : "black")};
   font-weight: ${(props) => (props.selected ? "300" : "300")};
+`;
+
+const CategoryTextContainer = styled.View`
+  height: 14px;
+  justify-content: center;
 `;
 
 const Places = styled.FlatList`
