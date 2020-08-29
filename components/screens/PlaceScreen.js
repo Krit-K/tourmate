@@ -5,7 +5,13 @@ import {
   widthPercentageToDP as vw,
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
-import { FontAwesome5, Ionicons, FontAwesome } from "@expo/vector-icons";
+import Collapsible from "react-native-collapsible";
+import {
+  Ionicons,
+  FontAwesome,
+  Feather,
+  SimpleLineIcons,
+} from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 
 import Text from "../Text";
@@ -18,10 +24,21 @@ export default PlaceScreen = ({ route, navigation }) => {
   );
 
   const [selectedGuide, setSelectedGuide] = useState(availableGuides[0]);
-
   const changeSelection = (guide) => {
     setSelectedGuide(guide);
   };
+  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [dropDownArrow, setDropDownArrow] = useState("ios-arrow-down");
+
+  const toggleCollapsible = () => {
+    setIsCollapsed(!isCollapsed);
+    if (dropDownArrow === "ios-arrow-down") {
+      setDropDownArrow("ios-arrow-up");
+    } else {
+      setDropDownArrow("ios-arrow-down");
+    }
+  };
+
   return (
     <PlaceContainer>
       <BackButton onPress={() => navigation.goBack()}>
@@ -64,11 +81,53 @@ export default PlaceScreen = ({ route, navigation }) => {
             {place.title}
             {"   "}
           </Text>
-          <FontAwesome5 name="bookmark" size={vh(2)} />
+          <Ionicons name="ios-heart-empty" size={vh(2)} />
         </BlurView>
         <DescriptionBackground>
           <Description>
-            <Text black>{place.description}</Text>
+            <DescriptionHeader>
+              <CollapsibleOpeningHours onPress={() => toggleCollapsible()}>
+                <Text black>Opening hours{"    "}</Text>
+                <Ionicons name={dropDownArrow} size={18} />
+              </CollapsibleOpeningHours>
+              <AccessButtons>
+                <Map>
+                  <Feather name="map-pin" size={22} color="#000" />
+                </Map>
+                <PhoneNumber>
+                  <Feather name="phone" size={22} color="#000" />
+                </PhoneNumber>
+                <Website>
+                  <SimpleLineIcons name="globe" size={22} color="#000" />
+                </Website>
+              </AccessButtons>
+            </DescriptionHeader>
+            <Collapsible collapsed={isCollapsed}>
+              <OpeningHours>
+                <Days>
+                  <Text black>Monday</Text>
+                  <Text black>Tuesday</Text>
+                  <Text black>Wednesday</Text>
+                  <Text black>Thursday</Text>
+                  <Text black>Friday</Text>
+                  <Text black>Saturday</Text>
+                  <Text black>Sunday</Text>
+                </Days>
+                <Hours>
+                  <Text black>All day</Text>
+                  <Text black>All day</Text>
+                  <Text black>All day</Text>
+                  <Text black>All day</Text>
+                  <Text black>All day</Text>
+                  <Text black>All day</Text>
+                  <Text black>All day</Text>
+                </Hours>
+              </OpeningHours>
+            </Collapsible>
+            <Divider />
+            <Text black style={{ paddingTop: 20 }}>
+              {place.description}
+            </Text>
           </Description>
         </DescriptionBackground>
         <AvailableTourGuidesContainer>
@@ -95,15 +154,17 @@ export default PlaceScreen = ({ route, navigation }) => {
           </TourGuidesSelection>
           <GuideInfo>
             <InfoHeader>
-              <Text large black>
-                {selectedGuide.name}
-              </Text>
-              <RatingContainer>
-                <FontAwesome name="star" size={18} color="#f1c232" />
-                <Rating>
-                  <Text>{selectedGuide.rating}</Text>
-                </Rating>
-              </RatingContainer>
+              <NameRatingContainer>
+                <Text large black>
+                  {selectedGuide.name}
+                </Text>
+                <RatingContainer>
+                  <FontAwesome name="star" size={18} color="#f1c232" />
+                  <Rating>
+                    <Text>{selectedGuide.rating}</Text>
+                  </Rating>
+                </RatingContainer>
+              </NameRatingContainer>
               <ViewProfile
                 onPress={() =>
                   navigation.navigate("TourGuideScreen", {
@@ -123,12 +184,19 @@ export default PlaceScreen = ({ route, navigation }) => {
             </BookNowContainer>
           </GuideInfo>
           <Review>
-            <Text black large>
-              {" "}
-              Reviews
-            </Text>
+            <ReviewHeader>
+              <Text black large>
+                Reviews (6)
+              </Text>
+              <RatingContainer>
+                <FontAwesome name="star" size={18} color="#f1c232" />
+                <Rating>
+                  <Text>{place.rating}</Text>
+                </Rating>
+              </RatingContainer>
+            </ReviewHeader>
             <Divider />
-            <Text black> No Reviews </Text>
+            <Text black>No Reviews</Text>
           </Review>
         </AvailableTourGuidesContainer>
       </ScrollContainer>
@@ -156,6 +224,46 @@ const DescriptionBackground = styled.View`
   padding: 20px 0px;
 `;
 
+const DescriptionHeader = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const AccessButtons = styled.View`
+  flex-direction: row;
+`;
+
+const Map = styled.TouchableOpacity`
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: #dfdfdf;
+  margin-right: 10px;
+`;
+
+const PhoneNumber = styled.TouchableOpacity`
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: #dfdfdf;
+  margin-right: 10px;
+`;
+
+const Website = styled.TouchableOpacity`
+  border-radius: 100px;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: #dfdfdf;
+  /* margin-right: 20px; */
+`;
+
 const BackButton = styled.TouchableOpacity`
   position: absolute;
   top: 28px;
@@ -163,11 +271,25 @@ const BackButton = styled.TouchableOpacity`
   padding: 10px 20px;
 `;
 
+const CollapsibleOpeningHours = styled.TouchableOpacity`
+  flex-direction: row;
+`;
+
+const OpeningHours = styled.View`
+  padding-top: 10px;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+const Days = styled.View``;
+
+const Hours = styled.View``;
+
 const Description = styled.View`
   background-color: #fff;
   border-radius: 20px;
   padding: 12px 24px 24px 24px;
-  margin: 0px 20px 0px 20px;
+  margin: 10px 20px 0px 20px;
 `;
 
 const AvailableTourGuidesContainer = styled.View`
@@ -207,15 +329,21 @@ const InfoHeader = styled.View`
   justify-content: space-between;
 `;
 
+const NameRatingContainer = styled.View`
+  flex-direction: row;
+`;
+
 const RatingContainer = styled.View`
   padding-top: 4px;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
+  margin-left: 20px;
 `;
 
 const Rating = styled.View`
   background-color: #f1c232;
-  align-self: flex-start;
+  /* align-self: flex-start; */
   margin-left: 2px;
   border-radius: 4px;
   padding: 0px 4px;
@@ -253,4 +381,8 @@ const Review = styled.View`
   padding: 24px;
   border-radius: 20px;
   margin: 10px 0px;
+`;
+
+const ReviewHeader = styled.View`
+  flex-direction: row;
 `;
