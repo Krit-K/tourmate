@@ -12,13 +12,18 @@ import {
   Feather,
   MaterialIcons,
 } from "@expo/vector-icons";
+import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
+import { SearchBar } from "react-native-elements";
 import { BlurView } from "expo-blur";
 import { ButtonGroup } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
-import { widthPercentageToDP as vw } from "react-native-responsive-screen";
 
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 import tourGuides from "../../tourGuideData";
 
 const tourGuideItem = (tourGuide, navigation) => {
@@ -62,11 +67,10 @@ const tourGuideItem = (tourGuide, navigation) => {
 };
 
 export default TourScreen = ({ navigation }) => {
+  let bottomSheet = React.createRef();
+
   const [searchInput, setSearchInput] = useState("");
   const updateSearchInput = (input) => setSearchInput(input);
-
-  const [placeHolderText, setPlaceHolderText] = useState("Search Tour Guide");
-  const updatePlaceHolderText = (input) => setPlaceHolderText(input);
 
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(2);
   const updateButtonIndex = (index) => setSelectedButtonIndex(index);
@@ -76,6 +80,17 @@ export default TourScreen = ({ navigation }) => {
 
   const [price, setPrice] = React.useState([100, 350]);
   const changePrice = (values) => setPrice(values);
+
+  const [isFilterSheetOpen, setIsFilterSheetOpen] = React.useState(false);
+  const toggleFilterSheetOpen = () => {
+    if (isFilterSheetOpen) {
+      setIsFilterSheetOpen(false);
+      bottomSheet.current.snapTo(1);
+    } else {
+      setIsFilterSheetOpen(true);
+      bottomSheet.current.snapTo(0);
+    }
+  };
 
   const convertIndexToGender = (index) => {
     switch (index) {
@@ -92,8 +107,6 @@ export default TourScreen = ({ navigation }) => {
   // Arguments: [gender, min age, max age, min price, max price]
   const [filters, setFilters] = React.useState(["", 18, 50, 100, 350]);
   const changeFilters = (values) => setFilters(values);
-
-  let bottomSheet = React.createRef();
 
   const clearFilters = () => {
     updateButtonIndex(2);
@@ -179,6 +192,7 @@ export default TourScreen = ({ navigation }) => {
             onPress={() => {
               bottomSheet.current.snapTo(1);
               changeFilters([gender, age[0], age[1], price[0], price[1]]);
+              setIsFilterSheetOpen(false);
             }}
           >
             <Text black>Apply Filter</Text>
@@ -191,26 +205,35 @@ export default TourScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <TourGuidesContainer>
-        <SafeAreaView />
-        <StatusBar />
+        <SafeAreaView green />
+        <StatusBar translucent backgroundColor="transparent" />
         <Banner>
-          <SearchBar>
-            <SearchInput
-              placeholder={placeHolderText}
-              placeholderTextColor="#5a5757"
-              onFocus={() => updatePlaceHolderText("")}
-              onChangeText={updateSearchInput}
-              value={searchInput}
-              onEndEditing={() => updatePlaceHolderText("Search Tour Guide")}
-            />
-            <Ionicons name="ios-search" size={24} color="#5a5757" />
-          </SearchBar>
+          <SearchBar
+            placeholder={"Search Tour Guide"}
+            onChangeText={updateSearchInput}
+            searchIcon={{ size: 25 }}
+            lightTheme
+            value={searchInput}
+            inputContainerStyle={{
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              height: 38,
+              borderRadius: 10,
+            }}
+            containerStyle={{
+              paddingLeft: vw(15),
+              paddingRight: vw(8),
+              paddingVertical: vh(2),
+              backgroundColor: "#abd3c6",
+              borderBottomColor: "transparent",
+              borderTopColor: "transparent",
+            }}
+          />
           <BackButton onPress={() => navigation.goBack()}>
             <Ionicons name="md-arrow-back" size={32} color="#ffffff" />
           </BackButton>
         </Banner>
 
-        <FilterButton onPress={() => bottomSheet.current.snapTo(0)}>
+        <FilterButton onPress={() => toggleFilterSheetOpen()}>
           <Text small>Filter{"  "}</Text>
           <FontAwesome name="filter" size={16} color="white" />
         </FilterButton>
@@ -242,10 +265,6 @@ export default TourScreen = ({ navigation }) => {
   );
 };
 
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
-
 const TourGuidesContainer = styled.View`
   background-color: #f3f3f3ff;
   flex: 1;
@@ -253,20 +272,6 @@ const TourGuidesContainer = styled.View`
 
 const Banner = styled.View`
   background-color: #abd3c6;
-`;
-
-const SearchBar = styled.View`
-  margin: 34px 38px 18px 58px;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 6px 10px 6px 18px;
-  border-radius: 8px;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const SearchInput = styled.TextInput`
-  font-size: 18px;
-  flex: 1;
 `;
 
 const TourGuides = styled.FlatList`
@@ -324,7 +329,7 @@ const Rating = styled.View`
 
 const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: 28px;
+  top: ${vh(1.5)}px;
   z-index: 10;
   padding: 10px 20px;
 `;

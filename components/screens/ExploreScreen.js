@@ -1,23 +1,25 @@
 import React, { useState, useRef } from "react";
 import { StatusBar, TouchableWithoutFeedback, Keyboard } from "react-native";
 import styled from "styled-components";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import {
+  widthPercentageToDP as vw,
+  heightPercentageToDP as vh,
+} from "react-native-responsive-screen";
+import { FontAwesome } from "@expo/vector-icons";
 
+import { SearchBar } from "react-native-elements";
 import { LinearGradient } from "expo-linear-gradient";
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 import categoryList from "../../categories";
 import places from "../../exploreData";
 
 export default ExploreScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [placeHolderText, setPlaceHolderText] = useState(
-    "Search Attraction Places"
-  );
   const placesRef = useRef();
 
   const updateSearchInput = (input) => setSearchInput(input);
-  const updatePlaceHolderText = (input) => setPlaceHolderText(input);
 
   const changeCategory = (category) => {
     placesRef.current.scrollToOffset({ x: 0, y: 0 });
@@ -77,22 +79,32 @@ export default ExploreScreen = ({ navigation }) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <Container>
-        <SafeAreaView />
-        <StatusBar barStyle="light-content" />
+        <SafeAreaView green />
+        <StatusBar
+          barStyle="light-content"
+          translucent
+          backgroundColor="transparent"
+        />
         <Banner>
-          <SearchBar>
-            <SearchInput
-              placeholder={placeHolderText}
-              placeholderTextColor="#5a5757"
-              onFocus={() => updatePlaceHolderText("")}
-              onChangeText={updateSearchInput}
-              value={searchInput}
-              onEndEditing={() =>
-                updatePlaceHolderText("Search Attraction Places")
-              }
-            />
-            <Ionicons name="ios-search" size={24} color="#5a5757" />
-          </SearchBar>
+          <SearchBar
+            placeholder={"Search Attraction Places"}
+            onChangeText={updateSearchInput}
+            searchIcon={{ size: 25 }}
+            lightTheme
+            value={searchInput}
+            inputContainerStyle={{
+              backgroundColor: "rgba(255, 255, 255, 0.8)",
+              height: 38,
+              borderRadius: 10,
+            }}
+            containerStyle={{
+              paddingHorizontal: vw(8),
+              paddingVertical: vh(2),
+              backgroundColor: "#abd3c6",
+              borderBottomColor: "transparent",
+              borderTopColor: "transparent",
+            }}
+          />
         </Banner>
         <Categories horizontal={true} showsHorizontalScrollIndicator={false}>
           {categoryList.map((category, index) => {
@@ -102,11 +114,13 @@ export default ExploreScreen = ({ navigation }) => {
                 selected={selectedCategory === category ? true : false}
                 onPress={() => changeCategory(category)}
               >
-                <CategoryName
-                  selected={selectedCategory === category ? true : false}
-                >
-                  {category}
-                </CategoryName>
+                <CategoryTextContainer>
+                  <CategoryName
+                    selected={selectedCategory === category ? true : false}
+                  >
+                    {category}
+                  </CategoryName>
+                </CategoryTextContainer>
               </Category>
             );
           })}
@@ -128,10 +142,6 @@ export default ExploreScreen = ({ navigation }) => {
   );
 };
 
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #abd3c6;
-`;
-
 const Container = styled.View`
   flex: 1;
   background-color: #f3f3f3ff;
@@ -139,20 +149,6 @@ const Container = styled.View`
 
 const Banner = styled.View`
   background-color: #abd3c6;
-`;
-
-const SearchBar = styled.View`
-  margin: 30px 38px 18px 48px;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 6px 10px 6px 18px;
-  border-radius: 8px;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const SearchInput = styled.TextInput`
-  font-size: 18px;
-  flex: 1;
 `;
 
 const Categories = styled.ScrollView`
@@ -173,6 +169,11 @@ const Category = styled.TouchableOpacity`
 const CategoryName = styled(Text)`
   color: ${(props) => (props.selected ? "#fff" : "black")};
   font-weight: ${(props) => (props.selected ? "300" : "300")};
+`;
+
+const CategoryTextContainer = styled.View`
+  height: 14px;
+  justify-content: center;
 `;
 
 const Places = styled.FlatList`

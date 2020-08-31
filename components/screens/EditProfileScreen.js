@@ -6,13 +6,18 @@ import profilePhoto from "../../assets/jennie.png";
 import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
 import Text from "../Text";
+import SafeAreaView from "../SafeAreaView";
 
 export default EditProfileScreen = ({ navigation }) => {
   return (
     <EditProfileContainer>
       <SafeAreaView />
 
-      <StatusBar barStyle="default" />
+      <StatusBar
+        barStyle="dark-content"
+        translucent
+        backgroundColor="transparent"
+      />
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <Banner>
           <BackButton onPress={() => navigation.goBack()}>
@@ -126,10 +131,6 @@ export default EditProfileScreen = ({ navigation }) => {
     </EditProfileContainer>
   );
 };
-
-const SafeAreaView = styled.SafeAreaView`
-  background-color: #f3f3f3;
-`;
 
 const EditProfileContainer = styled.View`
   background-color: #f3f3f3;
