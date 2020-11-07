@@ -29,6 +29,8 @@ import CalendarScreen from "./components/screens/CalendarScreen";
 import GeneralScreen from "./components/screens/GeneralScreen";
 import EditProfileScreen from "./components/screens/EditProfileScreen";
 import InviteScreen from "./components/screens/InviteScreen";
+import UsefulContactsScreen from "./components/screens/UsefulContactsScreen";
+import AboutUsScreen from "./components/screens/AboutUsScreen";
 
 import Text from "./components/Text";
 
@@ -159,6 +161,11 @@ export default function App() {
         <AppStack.Screen name="PlaceScreen" component={PlaceScreen} />
         <AppStack.Screen name="TourScreen" component={TourScreen} />
         <AppStack.Screen name="TourGuideScreen" component={TourGuideScreen} />
+        <AppStack.Screen
+          name="UsefulContactsScreen"
+          component={UsefulContactsScreen}
+        />
+        <AppStack.Screen name="AboutUsScreen" component={AboutUsScreen} />
         <AppStack.Screen
           name="CalendarScreen"
           component={CalendarScreen}
