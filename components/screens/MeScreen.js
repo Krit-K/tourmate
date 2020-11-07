@@ -112,7 +112,7 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button>
+          <Button onPress={() => navigation.navigate("UsefulContactsScreen")}>
             <SimpleLineIcons name="phone" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: vw(4) }}>
@@ -120,7 +120,7 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button>
+          <Button onPress={() => navigation.navigate("AboutUsScreen")}>
             <SimpleLineIcons name="question" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
