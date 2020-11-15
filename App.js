@@ -169,35 +169,14 @@ export default function App() {
         <AppStack.Screen
           name="CalendarScreen"
           component={CalendarScreen}
-          options={{ ...TransitionPresets.FadeFromBottomAndroid }}
+          // options={{ ...TransitionPresets.FadeFromBottomAndroid }}
         />
-        <AppStack.Screen
-          name="GeneralScreen"
-          component={GeneralScreen}
-          options={{
-            gestureEnabled: "true",
-            gestureDirection: "horizontal",
-            ...TransitionPresets.FadeFromBottomAndroid,
-          }}
-        />
+        <AppStack.Screen name="GeneralScreen" component={GeneralScreen} />
         <AppStack.Screen
           name="EditProfileScreen"
           component={EditProfileScreen}
-          options={{
-            gestureEnabled: "true",
-            gestureDirection: "horizontal",
-            ...TransitionPresets.FadeFromBottomAndroid,
-          }}
         />
-        <AppStack.Screen
-          name="InviteScreen"
-          component={InviteScreen}
-          options={{
-            gestureEnabled: "true",
-            gestureDirection: "horizontal",
-            ...TransitionPresets.FadeFromBottomAndroid,
-          }}
-        />
+        <AppStack.Screen name="InviteScreen" component={InviteScreen} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
