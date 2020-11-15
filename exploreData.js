@@ -13,8 +13,16 @@ export default places = [
       require("./assets/places/chinatown2.jpeg"),
       require("./assets/places/chinatown3.jpeg"),
     ],
+    openingHours: {
+      mon: "All day",
+      tue: "All day",
+      wed: "All day",
+      thu: "All day",
+      fri: "All day",
+      sat: "All day",
+      sun: "All day",
+    },
   },
-
   {
     id: 2,
     title: "Royal Palace",
@@ -29,6 +37,15 @@ export default places = [
       require("./assets/places/royalPalace2.jpeg"),
       require("./assets/places/royalPalace3.jpeg"),
     ],
+    openingHours: {
+      mon: "8:30 - 15:30",
+      tue: "8:30 - 15:30",
+      wed: "8:30 - 15:30",
+      thu: "8:30 - 15:30",
+      fri: "8:30 - 15:30",
+      sat: "8:30 - 15:30",
+      sun: "8:30 - 15:30",
+    },
   },
   {
     id: 3,
@@ -44,6 +61,15 @@ export default places = [
       require("./assets/places/damnoenSaduakFloatingMarket2.jpeg"),
       require("./assets/places/damnoenSaduakFloatingMarket3.jpeg"),
     ],
+    openingHours: {
+      mon: "7:00 - 17:00",
+      tue: "7:00 - 17:00",
+      wed: "7:00 - 17:00",
+      thu: "7:00 - 17:00",
+      fri: "7:00 - 17:00",
+      sat: "7:00 - 17:00",
+      sun: "7:00 - 17:00",
+    },
   },
   {
     id: 4,
@@ -60,6 +86,15 @@ export default places = [
       require("./assets/places/dogInTownAri2.jpg"),
       require("./assets/places/dogInTownAri3.jpg"),
     ],
+    openingHours: {
+      mon: "11:00 - 20:00",
+      tue: "11:00 - 20:00",
+      wed: "11:00 - 20:00",
+      thu: "11:00 - 20:00",
+      fri: "11:00 - 20:00",
+      sat: "11:00 - 20:00",
+      sun: "11:00 - 20:00",
+    },
   },
   {
     id: 5,
@@ -75,6 +110,15 @@ export default places = [
       require("./assets/places/baiyokeTower2.jpeg"),
       require("./assets/places/baiyokeTower3.jpeg"),
     ],
+    openingHours: {
+      mon: "16:00 - 23:00",
+      tue: "16:00 - 23:00",
+      wed: "16:00 - 23:00",
+      thu: "16:00 - 23:00",
+      fri: "16:00 - 23:00",
+      sat: "16:00 - 23:00",
+      sun: "16:00 - 23:00",
+    },
   },
   {
     id: 6,
@@ -90,6 +134,15 @@ export default places = [
       require("./assets/places/kingRamaIXPark2.jpg"),
       require("./assets/places/kingRamaIXPark3.jpg"),
     ],
+    openingHours: {
+      mon: "5:00 - 19:00",
+      tue: "5:00 - 19:00",
+      wed: "5:00 - 19:00",
+      thu: "5:00 - 19:00",
+      fri: "5:00 - 19:00",
+      sat: "5:00 - 19:00",
+      sun: "5:00 - 19:00",
+    },
   },
   {
     id: 7,
@@ -106,5 +159,14 @@ export default places = [
       require("./assets/places/tacoPark2.jpg"),
       require("./assets/places/tacoPark3.jpg"),
     ],
+    openingHours: {
+      mon: "12:00 - 22:00",
+      tue: "12:00 - 22:00",
+      wed: "12:00 - 22:00",
+      thu: "12:00 - 22:00",
+      fri: "12:00 - 22:00",
+      sat: "10:00 - 22:00",
+      sun: "10:00 - 22:00",
+    },
   },
 ];
