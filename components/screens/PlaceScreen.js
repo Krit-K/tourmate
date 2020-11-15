@@ -114,13 +114,13 @@ export default PlaceScreen = ({ route, navigation }) => {
                   <Text black>Sunday</Text>
                 </Days>
                 <Hours>
-                  <Text black>All day</Text>
-                  <Text black>All day</Text>
-                  <Text black>All day</Text>
-                  <Text black>All day</Text>
-                  <Text black>All day</Text>
-                  <Text black>All day</Text>
-                  <Text black>All day</Text>
+                  <Text black>{place.openingHours.mon}</Text>
+                  <Text black>{place.openingHours.tue}</Text>
+                  <Text black>{place.openingHours.wed}</Text>
+                  <Text black>{place.openingHours.thu}</Text>
+                  <Text black>{place.openingHours.fri}</Text>
+                  <Text black>{place.openingHours.sat}</Text>
+                  <Text black>{place.openingHours.sun}</Text>
                 </Hours>
               </OpeningHours>
             </Collapsible>
