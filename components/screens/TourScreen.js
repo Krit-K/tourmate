@@ -93,7 +93,7 @@ export default TourScreen = ({ navigation }) => {
 
   const clearFilters = () => {
     updateButtonIndex(2);
-    changeAge([18, 50]);
+    changeAge([18, 40]);
     changePrice([100, 350]);
   };
 
