@@ -13,6 +13,7 @@ import {
   SimpleLineIcons,
 } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
+import Carousel from "react-native-snap-carousel";
 
 import Text from "../Text";
 import tourGuides from "../../tourGuideData";
@@ -39,6 +40,10 @@ export default PlaceScreen = ({ route, navigation }) => {
     }
   };
 
+  const renderPlaces = (place, index) => (
+    <PlacePhoto source={place.item} key={index} />
+  );
+
   return (
     <PlaceContainer>
       <BackButton onPress={() => navigation.goBack()}>
@@ -50,17 +55,18 @@ export default PlaceScreen = ({ route, navigation }) => {
         backgroundColor="transparent"
       />
       <ScrollContainer>
-        <PlacePhotoContainer
-          horizontal={true}
-          showsHorizontalScrollIndicator={false}
-          decelerationRate={0}
-          snapToInterval={vw(100)}
-          snapToAlignment={"center"}
-        >
-          {place.photos.map((photo, index) => {
-            return <PlacePhoto source={photo} key={index} />;
-          })}
-        </PlacePhotoContainer>
+        <Carousel
+          data={place.photos}
+          renderItem={renderPlaces}
+          sliderWidth={vw(100)}
+          itemWidth={vw(100)}
+          inactiveSlideScale={1}
+          inactiveSlideOpacity={1}
+          loop
+          autoplay={true}
+          autoplayDelay={5000}
+          autoplayInterval={9000}
+        />
         <BlurView
           tint={"light"}
           intensity={90}
@@ -210,8 +216,6 @@ const PlaceContainer = styled.View`
 `;
 
 const ScrollContainer = styled.ScrollView``;
-
-const PlacePhotoContainer = styled.ScrollView``;
 
 const PlacePhoto = styled.Image`
   height: 250px;
