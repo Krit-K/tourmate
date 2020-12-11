@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-import {
-  StatusBar,
-  Keyboard,
-  TouchableWithoutFeedback,
-  StyleSheet,
-} from "react-native";
+import { StatusBar, StyleSheet } from "react-native";
 import styled from "styled-components";
 import {
   Ionicons,
@@ -188,65 +183,63 @@ export default TourScreen = ({ navigation }) => {
   };
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <TourGuidesContainer>
-        <SafeAreaView green />
-        <StatusBar translucent backgroundColor="transparent" />
-        <Banner>
-          <SearchBar
-            placeholder={"Search Tour Guide"}
-            onChangeText={updateSearchInput}
-            searchIcon={{ size: 25 }}
-            lightTheme
-            value={searchInput}
-            inputContainerStyle={{
-              backgroundColor: "rgba(255, 255, 255, 0.8)",
-              height: 38,
-              borderRadius: 10,
-            }}
-            containerStyle={{
-              paddingLeft: vw(15),
-              paddingRight: vw(8),
-              paddingVertical: vh(2),
-              backgroundColor: "#abd3c6",
-              borderBottomColor: "transparent",
-              borderTopColor: "transparent",
-            }}
-          />
-          <BackButton onPress={() => navigation.goBack()}>
-            <Ionicons name="md-arrow-back" size={32} color="#ffffff" />
-          </BackButton>
-        </Banner>
-
-        <FilterButton onPress={() => toggleFilterSheetOpen()}>
-          <Text small>Filter{"  "}</Text>
-          <FontAwesome name="filter" size={16} color="white" />
-        </FilterButton>
-        <TourGuides
-          data={tourGuides.filter(
-            (guide) =>
-              guide.name.toLowerCase().includes(searchInput.toLowerCase()) &&
-              guide.category.gender.includes(gender) &&
-              guide.category.age <= age[1] &&
-              guide.category.age >= age[0] &&
-              guide.category.price <= price[1] &&
-              guide.category.price >= price[0]
-          )}
-          keyExtractor={(item) => String(item.id)}
-          renderItem={({ item }) => tourGuideItem(item, navigation)}
-        ></TourGuides>
-        <BottomSheet
-          ref={bottomSheet}
-          snapPoints={[410, 0]}
-          renderHeader={renderHeader}
-          renderContent={renderInner}
-          initialSnap={1}
-          enabledContentGestureInteraction={false}
-          enabledContentTapInteraction={false}
-          enabledInnerScrolling={false}
+    <TourGuidesContainer>
+      <SafeAreaView green />
+      <StatusBar translucent backgroundColor="transparent" />
+      <Banner>
+        <SearchBar
+          placeholder={"Search Tour Guide"}
+          onChangeText={updateSearchInput}
+          searchIcon={{ size: 25 }}
+          lightTheme
+          value={searchInput}
+          inputContainerStyle={{
+            backgroundColor: "rgba(255, 255, 255, 0.8)",
+            height: 38,
+            borderRadius: 10,
+          }}
+          containerStyle={{
+            paddingLeft: vw(15),
+            paddingRight: vw(8),
+            paddingVertical: vh(2),
+            backgroundColor: "#abd3c6",
+            borderBottomColor: "transparent",
+            borderTopColor: "transparent",
+          }}
         />
-      </TourGuidesContainer>
-    </TouchableWithoutFeedback>
+        <BackButton onPress={() => navigation.goBack()}>
+          <Ionicons name="md-arrow-back" size={32} color="#ffffff" />
+        </BackButton>
+      </Banner>
+
+      <FilterButton onPress={() => toggleFilterSheetOpen()}>
+        <Text small>Filter{"  "}</Text>
+        <FontAwesome name="filter" size={16} color="white" />
+      </FilterButton>
+      <TourGuides
+        data={tourGuides.filter(
+          (guide) =>
+            guide.name.toLowerCase().includes(searchInput.toLowerCase()) &&
+            guide.category.gender.includes(gender) &&
+            guide.category.age <= age[1] &&
+            guide.category.age >= age[0] &&
+            guide.category.price <= price[1] &&
+            guide.category.price >= price[0]
+        )}
+        keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => tourGuideItem(item, navigation)}
+      ></TourGuides>
+      <BottomSheet
+        ref={bottomSheet}
+        snapPoints={[410, 0]}
+        renderHeader={renderHeader}
+        renderContent={renderInner}
+        initialSnap={1}
+        enabledContentGestureInteraction={false}
+        enabledContentTapInteraction={false}
+        enabledInnerScrolling={false}
+      />
+    </TourGuidesContainer>
   );
 };
 
