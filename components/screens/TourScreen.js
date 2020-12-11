@@ -182,15 +182,6 @@ export default TourScreen = ({ navigation }) => {
               snapped
             />
           </SliderContainer>
-          <ApplyFilterButton
-            onPress={() => {
-              bottomSheet.current.snapTo(1);
-              changeFilters([gender, age[0], age[1], price[0], price[1]]);
-              setIsFilterSheetOpen(false);
-            }}
-          >
-            <Text black>Apply Filter</Text>
-          </ApplyFilterButton>
         </Panel>
       </BlurView>
     );
@@ -358,17 +349,6 @@ const PanelHandle = styled.View`
   border-radius: 4px;
   background-color: #00000040;
   margin-bottom: 10px;
-  align-self: center;
-`;
-
-const ApplyFilterButton = styled.TouchableOpacity`
-  margin-top: 20px;
-  width: 85%;
-  background-color: #abd3c6;
-  border-radius: 8px;
-  padding: 7px 16px;
-  align-items: center;
-  justify-content: center;
   align-self: center;
 `;
 
