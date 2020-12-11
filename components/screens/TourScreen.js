@@ -70,27 +70,9 @@ export default TourScreen = ({ navigation }) => {
   let bottomSheet = React.createRef();
 
   const [searchInput, setSearchInput] = useState("");
-  const updateSearchInput = (input) => setSearchInput(input);
-
   const [selectedButtonIndex, setSelectedButtonIndex] = useState(2);
-  const updateButtonIndex = (index) => setSelectedButtonIndex(index);
-
   const [age, setAge] = React.useState([18, 40]);
-  const changeAge = (values) => setAge(values);
-
   const [price, setPrice] = React.useState([100, 350]);
-  const changePrice = (values) => setPrice(values);
-
-  const [isFilterSheetOpen, setIsFilterSheetOpen] = React.useState(false);
-  const toggleFilterSheetOpen = () => {
-    if (isFilterSheetOpen) {
-      setIsFilterSheetOpen(false);
-      bottomSheet.current.snapTo(1);
-    } else {
-      setIsFilterSheetOpen(true);
-      bottomSheet.current.snapTo(0);
-    }
-  };
 
   const convertIndexToGender = (index) => {
     switch (index) {
@@ -102,16 +84,28 @@ export default TourScreen = ({ navigation }) => {
         return "";
     }
   };
-  const gender = convertIndexToGender(selectedButtonIndex);
 
-  // Arguments: [gender, min age, max age, min price, max price]
-  const [filters, setFilters] = React.useState(["", 18, 50, 100, 350]);
-  const changeFilters = (values) => setFilters(values);
+  const gender = convertIndexToGender(selectedButtonIndex);
+  const updateSearchInput = (input) => setSearchInput(input);
+  const updateButtonIndex = (index) => setSelectedButtonIndex(index);
+  const changeAge = (values) => setAge(values);
+  const changePrice = (values) => setPrice(values);
 
   const clearFilters = () => {
     updateButtonIndex(2);
-    changeAge([18, 50]);
+    changeAge([18, 40]);
     changePrice([100, 350]);
+  };
+
+  const [isFilterSheetOpen, setIsFilterSheetOpen] = React.useState(false);
+  const toggleFilterSheetOpen = () => {
+    if (isFilterSheetOpen) {
+      setIsFilterSheetOpen(false);
+      bottomSheet.current.snapTo(1);
+    } else {
+      setIsFilterSheetOpen(true);
+      bottomSheet.current.snapTo(0);
+    }
   };
 
   const renderHeader = () => (
@@ -188,15 +182,6 @@ export default TourScreen = ({ navigation }) => {
               snapped
             />
           </SliderContainer>
-          <ApplyFilterButton
-            onPress={() => {
-              bottomSheet.current.snapTo(1);
-              changeFilters([gender, age[0], age[1], price[0], price[1]]);
-              setIsFilterSheetOpen(false);
-            }}
-          >
-            <Text black>Apply Filter</Text>
-          </ApplyFilterButton>
         </Panel>
       </BlurView>
     );
@@ -241,11 +226,11 @@ export default TourScreen = ({ navigation }) => {
           data={tourGuides.filter(
             (guide) =>
               guide.name.toLowerCase().includes(searchInput.toLowerCase()) &&
-              guide.category.gender.includes(filters[0]) &&
-              guide.category.age <= filters[2] &&
-              guide.category.age >= filters[1] &&
-              guide.category.price <= filters[4] &&
-              guide.category.price >= filters[3]
+              guide.category.gender.includes(gender) &&
+              guide.category.age <= age[1] &&
+              guide.category.age >= age[0] &&
+              guide.category.price <= price[1] &&
+              guide.category.price >= price[0]
           )}
           keyExtractor={(item) => String(item.id)}
           renderItem={({ item }) => tourGuideItem(item, navigation)}
@@ -364,17 +349,6 @@ const PanelHandle = styled.View`
   border-radius: 4px;
   background-color: #00000040;
   margin-bottom: 10px;
-  align-self: center;
-`;
-
-const ApplyFilterButton = styled.TouchableOpacity`
-  margin-top: 20px;
-  width: 85%;
-  background-color: #abd3c6;
-  border-radius: 8px;
-  padding: 7px 16px;
-  align-items: center;
-  justify-content: center;
   align-self: center;
 `;
 
