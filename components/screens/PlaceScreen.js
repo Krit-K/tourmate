@@ -17,6 +17,7 @@ import Carousel from "react-native-snap-carousel";
 
 import Text from "../Text";
 import tourGuides from "../../tourGuideData";
+import ReviewCard from "../ReviewCard";
 
 export default PlaceScreen = ({ route, navigation }) => {
   const { place } = route.params;
@@ -202,6 +203,7 @@ export default PlaceScreen = ({ route, navigation }) => {
               </RatingContainer>
             </ReviewHeader>
             <Divider />
+            <ReviewCard source={availableGuides[1].photo} />
             <Text black>No Reviews</Text>
           </Review>
         </AvailableTourGuidesContainer>
