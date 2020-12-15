@@ -17,6 +17,7 @@ import Carousel from "react-native-snap-carousel";
 
 import Text from "../Text";
 import tourGuides from "../../tourGuideData";
+import users from "../../userData";
 import ReviewCard from "../ReviewCard";
 
 export default PlaceScreen = ({ route, navigation }) => {
