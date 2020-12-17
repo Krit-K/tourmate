@@ -12,5 +12,10 @@ export default tourGuides = [
       },
     },
   },
+  {
+    id: 2,
+    name: "Yeji",
+    photo: require("./assets/users/yeji.jpeg"),
+    },
   },
 ];
