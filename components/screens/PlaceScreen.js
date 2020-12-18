@@ -204,7 +204,6 @@ export default PlaceScreen = ({ route, navigation }) => {
             </ReviewHeader>
             <Divider />
             <ReviewCard source={availableGuides[1].photo} />
-            <Text black>No Reviews</Text>
           </Review>
         </AvailableTourGuidesContainer>
       </ScrollContainer>
