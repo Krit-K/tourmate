@@ -203,7 +203,7 @@ export default PlaceScreen = ({ route, navigation }) => {
               </RatingContainer>
             </ReviewHeader>
             <Divider />
-            <ReviewCard source={availableGuides[1].photo} />
+            <ReviewCard users={reviewUsers} place={place.title} />
           </Review>
         </AvailableTourGuidesContainer>
       </ScrollContainer>
