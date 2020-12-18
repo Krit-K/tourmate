@@ -193,7 +193,7 @@ export default PlaceScreen = ({ route, navigation }) => {
           <Review>
             <ReviewHeader>
               <Text black large>
-                Reviews (6)
+                Reviews (2)
               </Text>
               <RatingContainer>
                 <FontAwesome name="star" size={18} color="#f1c232" />
