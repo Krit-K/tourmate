@@ -42,6 +42,10 @@ export default PlaceScreen = ({ route, navigation }) => {
     }
   };
 
+  const reviewUsers = users.filter((user) =>
+    Object.keys(user.reviews).includes(place.title)
+  );
+
   const renderPlaces = (place, index) => (
     <PlacePhoto source={place.item} key={index} />
   );
