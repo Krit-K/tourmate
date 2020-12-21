@@ -6,6 +6,8 @@ import { StyleSheet, Platform, StatusBar } from "react-native";
 const ReviewCard = styled.View``;
 
 const Image = styled.Image`
-  width: 40px;
-  height: 40px;
+  width: ${vw(15)}px;
+  height: ${vw(15)}px;
+  border-radius: 100px;
+`;
 `;
