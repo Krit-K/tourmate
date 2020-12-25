@@ -80,4 +80,26 @@ export default tourGuides = [
       },
     },
   },
+  {
+    id: 3,
+    name: "Jennie Kim",
+    photo: require("./assets/jennie.png"),
+    reviews: {
+      "Damneon Saduak Floating Market": {
+        rating: 5.0,
+        date: "30 Dec 2020",
+        review: "Lorem Ipsum",
+      },
+      "Baiyoke Tower": {
+        rating: 5.0,
+        date: "30 Dec 2020",
+        review: "Lorem Ipsum",
+      },
+      "King Rama IX Park": {
+        rating: 5.0,
+        date: "30 Dec 2020",
+        review: "Lorem Ipsum",
+      },
+    },
+  },
 ];
