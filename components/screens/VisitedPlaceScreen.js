@@ -6,6 +6,9 @@ import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
 import Text from "../Text";
 import SafeAreaView from "../SafeAreaView";
+import users from "../../userData";
+
+const visitedPlace = users;
 
 export default VisitedPlaceScreen = ({ navigation }) => {
   return (
@@ -27,9 +30,14 @@ export default VisitedPlaceScreen = ({ navigation }) => {
       <BackgroundContainer>
         <Container>
           <VisitedPlaceCard>
+            <PlaceImage />
             <InformationContainer>
-              <ViewProfile />
-              <BookNow />
+              <ViewProfile>
+                <Text>View Profile</Text>
+              </ViewProfile>
+              <BookNow>
+                <Text>Book Now</Text>
+              </BookNow>
             </InformationContainer>
             <AddComment>
               <Text black>Add Comment</Text>
@@ -84,12 +92,18 @@ const InformationContainer = styled.View`
   margin-bottom: 4px;
 `;
 
+const PlaceImage = styled.Image``;
+
 const ViewProfile = styled.TouchableOpacity`
   background-color: #f1b986;
+  padding: ${vh(0.7)}px;
+  border-radius: 8px;
 `;
 
 const BookNow = styled.TouchableOpacity`
   background-color: #abd3c6;
+  padding: ${vh(0.7)}px;
+  border-radius: 8px;
 `;
 
 const AddComment = styled.TouchableOpacity`
