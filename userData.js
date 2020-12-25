@@ -1,4 +1,4 @@
-export default tourGuides = [
+export default users = [
   {
     id: 1,
     name: "Lisa",
