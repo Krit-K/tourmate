@@ -86,7 +86,7 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button>
+          <Button onPress={() => navigation.navigate("VisitedPlaceScreen")}>
             <Feather name="map-pin" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
