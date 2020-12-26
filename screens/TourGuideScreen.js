@@ -13,8 +13,8 @@ import {
 import { Ionicons, Entypo } from "@expo/vector-icons";
 
 import videoPlayer from "../../assets/videoPlayer.png";
-import places from "../../exploreData";
-import Text from "../Text";
+import places from "../data/exploreData";
+import Text from "../components/Text";
 
 export default TourGuideScreen = ({ route, navigation }) => {
   const { tourGuide } = route.params;

@@ -7,8 +7,8 @@ import {
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
 import { SearchBar } from "react-native-elements";
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 
 export default MessageScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");

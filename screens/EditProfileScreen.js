@@ -5,8 +5,8 @@ import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import profilePhoto from "../../assets/jennie.png";
 import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 
 export default EditProfileScreen = ({ navigation }) => {
   return (

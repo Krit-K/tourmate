@@ -4,8 +4,8 @@ import { StatusBar } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { Calendar } from "react-native-calendars";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 
 export default CalendarScreen = ({ navigation }) => {
   const currentDay = new Date().getDate().toString().padStart(2, "0");

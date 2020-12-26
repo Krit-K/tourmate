@@ -9,10 +9,10 @@ import { FontAwesome } from "@expo/vector-icons";
 
 import { SearchBar } from "react-native-elements";
 import { LinearGradient } from "expo-linear-gradient";
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
-import categoryList from "../../categories";
-import places from "../../exploreData";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
+import categoryList from "../data/categories";
+import places from "../data/exploreData";
 
 export default ExploreScreen = ({ navigation }) => {
   const [searchInput, setSearchInput] = useState("");

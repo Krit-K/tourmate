@@ -4,9 +4,9 @@ import { StatusBar } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
-import users from "../../userData";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
+import users from "../data/userData";
 
 const visitedPlace = users;
 

@@ -17,9 +17,9 @@ import { ButtonGroup } from "react-native-elements";
 import BottomSheet from "reanimated-bottom-sheet";
 import MultiSlider from "@ptomasroos/react-native-multi-slider";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
-import tourGuides from "../../tourGuideData";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
+import tourGuides from "../data/tourGuideData";
 
 const tourGuideItem = (tourGuide, navigation) => {
   return (

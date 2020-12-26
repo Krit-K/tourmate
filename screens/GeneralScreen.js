@@ -4,8 +4,8 @@ import { StatusBar } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 
 export default GeneralScreen = ({ navigation }) => {
   return (

@@ -15,10 +15,10 @@ import {
 import { BlurView } from "expo-blur";
 import Carousel from "react-native-snap-carousel";
 
-import Text from "../Text";
-import tourGuides from "../../tourGuideData";
-import users from "../../userData";
-import ReviewCard from "../ReviewCard";
+import Text from "../components/Text";
+import tourGuides from "../data/tourGuideData";
+import users from "../data/userData";
+import ReviewCard from "../components/ReviewCard";
 
 export default PlaceScreen = ({ route, navigation }) => {
   const { place } = route.params;

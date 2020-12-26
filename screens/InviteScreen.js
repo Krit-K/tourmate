@@ -7,8 +7,8 @@ import {
 } from "react-native-responsive-screen";
 import { Ionicons } from "@expo/vector-icons";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 
 export default InviteScreen = ({ navigation }) => {
   const referralSteps = [

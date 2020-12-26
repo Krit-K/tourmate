@@ -9,10 +9,10 @@ import { Ionicons, FontAwesome } from "@expo/vector-icons";
 
 import Carousel, { Pagination } from "react-native-snap-carousel";
 import { LinearGradient } from "expo-linear-gradient";
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
-import places from "../../exploreData";
-import tourGuides from "../../tourGuideData";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
+import places from "../data/exploreData";
+import tourGuides from "../data/tourGuideData";
 
 export default HomeScreen = ({ navigation }) => {
   const [placeActiveSlide, setPlaceActiveSlide] = useState(0);
@@ -104,7 +104,7 @@ export default HomeScreen = ({ navigation }) => {
             <CalendarContainer
               onPress={() => navigation.navigate("CalendarScreen")}
             >
-              <Calendar source={require("../../assets/calendar.png")} />
+              <Calendar source={require("../assets/calendar.png")} />
             </CalendarContainer>
           </Header>
         </Banner>

@@ -18,20 +18,20 @@ import {
   Comfortaa_700Bold,
 } from "@expo-google-fonts/comfortaa";
 
-import HomeScreen from "./components/screens/HomeScreen";
-import MessageScreen from "./components/screens/MessageScreen";
-import ExploreScreen from "./components/screens/ExploreScreen";
-import MeScreen from "./components/screens/MeScreen";
-import PlaceScreen from "./components/screens/PlaceScreen";
-import TourScreen from "./components/screens/TourScreen";
-import TourGuideScreen from "./components/screens/TourGuideScreen";
-import CalendarScreen from "./components/screens/CalendarScreen";
-import GeneralScreen from "./components/screens/GeneralScreen";
-import EditProfileScreen from "./components/screens/EditProfileScreen";
-import InviteScreen from "./components/screens/InviteScreen";
-import UsefulContactsScreen from "./components/screens/UsefulContactsScreen";
-import AboutUsScreen from "./components/screens/AboutUsScreen";
-import VisitedPlaceScreen from "./components/screens/VisitedPlaceScreen";
+import HomeScreen from "./screens/HomeScreen";
+import MessageScreen from "./screens/MessageScreen";
+import ExploreScreen from "./screens/ExploreScreen";
+import MeScreen from "./screens/MeScreen";
+import PlaceScreen from "./screens/PlaceScreen";
+import TourScreen from "./screens/TourScreen";
+import TourGuideScreen from "./screens/TourGuideScreen";
+import CalendarScreen from "./screens/CalendarScreen";
+import GeneralScreen from "./screens/GeneralScreen";
+import EditProfileScreen from "./screens/EditProfileScreen";
+import InviteScreen from "./screens/InviteScreen";
+import UsefulContactsScreen from "./screens/UsefulContactsScreen";
+import AboutUsScreen from "./screens/AboutUsScreen";
+import VisitedPlaceScreen from "./screens/VisitedPlaceScreen";
 
 import Text from "./components/Text";
 

@@ -12,10 +12,10 @@ import {
   SimpleLineIcons,
 } from "@expo/vector-icons";
 
-import profileImage from "../../assets/jennie.png";
-import tourGuides from "../../tourGuideData";
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import profileImage from "../assets/jennie.png";
+import tourGuides from "../data/tourGuideData";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 
 export default MeScreen = ({ navigation }) => {
   return (

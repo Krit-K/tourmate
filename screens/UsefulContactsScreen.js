@@ -7,8 +7,8 @@ import {
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 import policeIcon from "../../assets/usefulContacts/policeIcon.png";
 import fireDepartmentIcon from "../../assets/usefulContacts/fireDepartment.png";
 import ambulanceIcon from "../../assets/usefulContacts/ambulance.png";

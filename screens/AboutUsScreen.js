@@ -7,8 +7,8 @@ import {
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
 
-import Text from "../Text";
-import SafeAreaView from "../SafeAreaView";
+import Text from "../components/Text";
+import SafeAreaView from "../components/SafeAreaView";
 import logo from "../../assets/logo.png";
 
 export default AboutUsScreen = ({ navigation }) => {
