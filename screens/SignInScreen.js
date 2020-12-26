@@ -38,6 +38,22 @@ export default SignInScreen = () => {
           />
         </AuthContainer>
       </Auth>
+
+      <SignInContainer>
+        <Text bold center>
+          Sign In
+        </Text>
+      </SignInContainer>
+
+      <SignUp>
+        <Text black center>
+          New to tourmate?{" "}
+          <Text bold color="#8022d9">
+            Sign Up
+          </Text>
+        </Text>
+      </SignUp>
+
       <HeaderGraphic>
         <RightCircle />
 
@@ -75,6 +91,19 @@ const AuthField = styled.TextInput`
   border-bottom-color: #8e93a1;
   border-bottom-width: 0.5px;
   height: 48px;
+`;
+
+const SignInContainer = styled.TouchableOpacity`
+  margin: 0 ${vh(3)}px;
+  height: ${vh(5)}px;
+  align-items: center;
+  justify-content: center;
+  background-color: #8022d9;
+  border-radius: 6px;
+`;
+
+const SignUp = styled.TouchableOpacity`
+  margin-top: ${vh(2)}px;
 `;
 
 const HeaderGraphic = styled.View`
