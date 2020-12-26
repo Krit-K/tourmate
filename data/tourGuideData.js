@@ -37,7 +37,7 @@ export default tourGuides = [
     id: 2,
     name: "Suzy Bae",
     about: "About me",
-    nationality: require("./assets/flags/korea.png"),
+    nationality: require("../assets/flags/korea.png"),
     rating: 4.9,
     category: {
       age: 22,
