@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StatusBar } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
-import profilePhoto from "../../assets/jennie.png";
+import profilePhoto from "../assets/jennie.png";
 import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
 import Text from "../components/Text";

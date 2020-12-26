@@ -12,7 +12,7 @@ import {
 } from "react-native-responsive-screen";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 
-import videoPlayer from "../../assets/videoPlayer.png";
+import videoPlayer from "../assets/videoPlayer.png";
 import places from "../data/exploreData";
 import Text from "../components/Text";
 

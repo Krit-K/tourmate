@@ -9,10 +9,10 @@ import {
 
 import Text from "../components/Text";
 import SafeAreaView from "../components/SafeAreaView";
-import policeIcon from "../../assets/usefulContacts/policeIcon.png";
-import fireDepartmentIcon from "../../assets/usefulContacts/fireDepartment.png";
-import ambulanceIcon from "../../assets/usefulContacts/ambulance.png";
-import informationIcon from "../../assets/usefulContacts/information.png";
+import policeIcon from "../assets/usefulContacts/policeIcon.png";
+import fireDepartmentIcon from "../assets/usefulContacts/fireDepartment.png";
+import ambulanceIcon from "../assets/usefulContacts/ambulance.png";
+import informationIcon from "../assets/usefulContacts/information.png";
 
 export default UsefulContactsScreen = ({ navigation }) => {
   return (
