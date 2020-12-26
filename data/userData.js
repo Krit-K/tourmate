@@ -2,7 +2,7 @@ export default users = [
   {
     id: 1,
     name: "Lisa",
-    photo: require("./assets/users/lisa.png"),
+    photo: require("../assets/users/lisa.png"),
     reviews: {
       "China Town": {
         rating: 5.0,
@@ -45,7 +45,7 @@ export default users = [
   {
     id: 2,
     name: "Yeji",
-    photo: require("./assets/users/yeji.jpeg"),
+    photo: require("../assets/users/yeji.jpeg"),
     reviews: {
       "China Town": {
         rating: 4.0,
@@ -83,7 +83,7 @@ export default users = [
   {
     id: 3,
     name: "Jennie Kim",
-    photo: require("./assets/jennie.png"),
+    photo: require("../assets/jennie.png"),
     reviews: {
       "Damneon Saduak Floating Market": {
         rating: 5.0,
