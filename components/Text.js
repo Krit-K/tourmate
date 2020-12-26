@@ -8,6 +8,8 @@ export default TextStyle = ({ ...props }) => {
 const Text = styled.Text`
   font-family: "Comfortaa_400Regular";
   color: ${(props) => props.color ?? "#ffffff"};
+  margin: ${(props) => props.margin ?? 0};
+  padding: ${(props) => props.padding ?? 0};
 
   ${({ white, black, orange, grey, brown, green }) => {
     switch (true) {
