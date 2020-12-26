@@ -18,6 +18,7 @@ import {
   Comfortaa_700Bold,
 } from "@expo-google-fonts/comfortaa";
 
+import AppStackScreens from "./stacks/AppStackScreens";
 import HomeScreen from "./screens/HomeScreen";
 import MessageScreen from "./screens/MessageScreen";
 import ExploreScreen from "./screens/ExploreScreen";
@@ -150,7 +151,8 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <AppStack.Navigator
+      <AppStackScreens />
+      {/* <AppStack.Navigator
         headerMode="none"
         screenOptions={{
           ...TransitionPresets.SlideFromRightIOS,
@@ -182,7 +184,7 @@ export default function App() {
           name="VisitedPlaceScreen"
           component={VisitedPlaceScreen}
         />
-      </AppStack.Navigator>
+      </AppStack.Navigator> */}
     </NavigationContainer>
   );
 }
