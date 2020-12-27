@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import {
   widthPercentageToDP as vw,
@@ -7,7 +7,11 @@ import {
 
 import Text from "../components/Text";
 
-export default SignInScreen = () => {
+export default SignInScreen = ({ navigation }) => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [loading, setLoading] = useState(false);
+
   return (
     <Container>
       <Main>
@@ -24,6 +28,8 @@ export default SignInScreen = () => {
             autoCorrect={false}
             autoFocus={true}
             keyboardType="email-address"
+            onChangeText={(email) => setEmail(email.trim())}
+            value={email}
           />
         </AuthContainer>
 
@@ -33,19 +39,24 @@ export default SignInScreen = () => {
             autocapitalize="none"
             autoCompleteType="password"
             autoCorrect={false}
-            autoFocus={true}
             secureTextEntry={true}
+            onChangeText={(password) => setPassword(password.trim())}
+            value={password}
           />
         </AuthContainer>
       </Auth>
 
-      <SignInContainer>
-        <Text bold center>
-          Sign In
-        </Text>
+      <SignInContainer disabled={loading}>
+        {loading ? (
+          <Loading />
+        ) : (
+          <Text bold center>
+            Sign In
+          </Text>
+        )}
       </SignInContainer>
 
-      <SignUp>
+      <SignUp onPress={() => navigation.navigate("SignUp")}>
         <Text black center>
           New to tourmate?{" "}
           <Text bold color="#8022d9">
@@ -101,6 +112,11 @@ const SignInContainer = styled.TouchableOpacity`
   background-color: #8022d9;
   border-radius: 6px;
 `;
+
+const Loading = styled.ActivityIndicator.attrs((props) => ({
+  color: "#fff",
+  size: "small",
+}))``;
 
 const SignUp = styled.TouchableOpacity`
   margin-top: ${vh(2)}px;
