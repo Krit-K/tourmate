@@ -17,6 +17,8 @@ import Carousel from "react-native-snap-carousel";
 
 import Text from "../Text";
 import tourGuides from "../../tourGuideData";
+import users from "../../userData";
+import ReviewCard from "../ReviewCard";
 
 export default PlaceScreen = ({ route, navigation }) => {
   const { place } = route.params;
@@ -39,6 +41,10 @@ export default PlaceScreen = ({ route, navigation }) => {
       setDropDownArrow("ios-arrow-down");
     }
   };
+
+  const reviewUsers = users.filter((user) =>
+    Object.keys(user.reviews).includes(place.title)
+  );
 
   const renderPlaces = (place, index) => (
     <PlacePhoto source={place.item} key={index} />
@@ -192,7 +198,7 @@ export default PlaceScreen = ({ route, navigation }) => {
           <Review>
             <ReviewHeader>
               <Text black large>
-                Reviews (6)
+                Reviews (2)
               </Text>
               <RatingContainer>
                 <FontAwesome name="star" size={18} color="#f1c232" />
@@ -202,7 +208,7 @@ export default PlaceScreen = ({ route, navigation }) => {
               </RatingContainer>
             </ReviewHeader>
             <Divider />
-            <Text black>No Reviews</Text>
+            <ReviewCard users={reviewUsers} place={place.title} />
           </Review>
         </AvailableTourGuidesContainer>
       </ScrollContainer>
