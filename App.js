@@ -18,6 +18,9 @@ import {
   Comfortaa_700Bold,
 } from "@expo-google-fonts/comfortaa";
 
+import { UserProvider } from "./context/UserContext";
+import { FirebaseProvider } from "./context/FirebaseContext";
+
 import AppStackScreens from "./stacks/AppStackScreens";
 import HomeScreen from "./screens/HomeScreen";
 import MessageScreen from "./screens/MessageScreen";
@@ -39,14 +42,14 @@ import Text from "./components/Text";
 const AppStack = createStackNavigator();
 const TabNav = createBottomTabNavigator();
 
-const tabBarOptions = {
-  showLabel: false,
-  keyboardHidesTabBar: true,
-  style: {
-    backgroundColor: "#f3f3f3ff",
-    borderTopColor: "#ede3daff",
-  },
-};
+// const tabBarOptions = {
+//   showLabel: false,
+//   keyboardHidesTabBar: true,
+//   style: {
+//     backgroundColor: "#f3f3f3ff",
+//     borderTopColor: "#ede3daff",
+//   },
+// };
 
 const TabNavScreen = () => {
   return (
@@ -90,10 +93,10 @@ const TabNavScreen = () => {
         },
       })}
     >
-      <TabNav.Screen name="Home" component={HomeScreen} />
+      {/* <TabNav.Screen name="Home" component={HomeScreen} />
       <TabNav.Screen name="Message" component={MessageScreen} />
       <TabNav.Screen name="Explore" component={ExploreScreen} />
-      <TabNav.Screen name="Me" component={MeScreen} />
+      <TabNav.Screen name="Me" component={MeScreen} /> */}
     </TabNav.Navigator>
   );
 };
@@ -150,9 +153,11 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <AppStackScreens />
-      {/* <AppStack.Navigator
+    <FirebaseProvider>
+      <UserProvider>
+        <NavigationContainer>
+          <AppStackScreens />
+          {/* <AppStack.Navigator
         headerMode="none"
         screenOptions={{
           ...TransitionPresets.SlideFromRightIOS,
@@ -185,7 +190,9 @@ export default function App() {
           component={VisitedPlaceScreen}
         />
       </AppStack.Navigator> */}
-    </NavigationContainer>
+        </NavigationContainer>
+      </UserProvider>
+    </FirebaseProvider>
   );
 }
 
