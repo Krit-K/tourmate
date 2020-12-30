@@ -46,6 +46,15 @@ export default PlaceScreen = ({ route, navigation }) => {
     Object.keys(user.reviews).includes(place.title)
   );
 
+  const calculateReviewRating = (reviewUsers) => {
+    let ratingSum = 0;
+    let reviewRating = 0;
+    reviewUsers.map((user) => (ratingSum += user.reviews[place.title].rating));
+    reviewRating = ratingSum / reviewUsers.length;
+    reviewRating = Math.round(reviewRating * 10) / 10;
+    return reviewRating.toFixed(1);
+  };
+
   const renderPlaces = (place, index) => (
     <PlacePhoto source={place.item} key={index} />
   );
@@ -198,12 +207,12 @@ export default PlaceScreen = ({ route, navigation }) => {
           <Review>
             <ReviewHeader>
               <Text black large>
-                Reviews (2)
+                Reviews ({reviewUsers.length})
               </Text>
               <RatingContainer>
                 <FontAwesome name="star" size={18} color="#f1c232" />
                 <Rating>
-                  <Text>{place.rating}</Text>
+                  <Text>{calculateReviewRating(reviewUsers)}</Text>
                 </Rating>
               </RatingContainer>
             </ReviewHeader>
