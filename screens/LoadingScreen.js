@@ -1,0 +1,28 @@
+import React from "react";
+import styled from "styled-components";
+import LottieView from "lottie-react-native";
+
+import Text from "../components/Text";
+
+export default LoadingScreen = () => {
+  return (
+    <Container>
+      <Text black title>
+        Loading...
+      </Text>
+      <LottieView
+        source={require("../assets/animations/loadingPaperPlane.json")}
+        autoPlay
+        loop
+        style={{ width: "100%" }}
+      />
+    </Container>
+  );
+};
+
+const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #222222; */
+`;
