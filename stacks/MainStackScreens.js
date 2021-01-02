@@ -24,46 +24,48 @@ export default MainStackScreens = () => {
     },
   };
 
+  const screenOptions = ({ route }) => ({
+    tabBarIcon: ({ focused }) => {
+      let iconName;
+      switch (route.name) {
+        case "Home":
+          iconName = "home";
+          break;
+        case "Message":
+          iconName = "chat";
+          break;
+        case "Explore":
+          iconName = "globe";
+          break;
+        case "Me":
+          iconName = "user";
+          break;
+        default:
+          iconName = "home";
+          break;
+      }
+      const userFocused = iconName === "user";
+      return (
+        <TabBarContainer>
+          <TabBarIconContainer focused={focused}>
+            {userFocused ? (
+              <FontAwesome name={iconName} size={26} color={"black"} />
+            ) : (
+              <Entypo name={iconName} size={24} color={"black"} />
+            )}
+          </TabBarIconContainer>
+          <Text mini black>
+            {route.name}
+          </Text>
+        </TabBarContainer>
+      );
+    },
+  });
+
   return (
     <MainStack.Navigator
       tabBarOptions={tabBarOptions}
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused }) => {
-          let iconName;
-          switch (route.name) {
-            case "Home":
-              iconName = "home";
-              break;
-            case "Message":
-              iconName = "chat";
-              break;
-            case "Explore":
-              iconName = "globe";
-              break;
-            case "Me":
-              iconName = "user";
-              break;
-            default:
-              iconName = "home";
-              break;
-          }
-          const userFocused = iconName === "user";
-          return (
-            <TabBarContainer>
-              <TabBarIconContainer focused={focused}>
-                {userFocused ? (
-                  <FontAwesome name={iconName} size={26} color={"black"} />
-                ) : (
-                  <Entypo name={iconName} size={24} color={"black"} />
-                )}
-              </TabBarIconContainer>
-              <Text mini black>
-                {route.name}
-              </Text>
-            </TabBarContainer>
-          );
-        },
-      })}
+      screenOptions={screenOptions}
     >
       <MainStack.Screen name="Home" component={HomeScreen} />
       <MainStack.Screen name="Message" component={MessageScreen} />
