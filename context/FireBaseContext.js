@@ -84,6 +84,17 @@ const Firebase = {
       xhr.send(null);
     });
   },
+
+  getUserInfo: async (uid) => {
+    try {
+      const user = await db.collection("users").doc(uid).get();
+      if (user.exists) {
+        return user.data();
+      }
+    } catch {
+      console.log("Error @getUserInfo: ", error);
+    }
+  },
 };
 
 const FirebaseProvider = (props) => {
