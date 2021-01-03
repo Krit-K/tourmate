@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { Feather } from "@expo/vector-icons";
-import * as Permissions from "expo-permissions";
-import * as ImagePicker from "expo-image-picker";
-
 import {
   widthPercentageToDP as vw,
   heightPercentageToDP as vh,
 } from "react-native-responsive-screen";
+import * as Permissions from "expo-permissions";
+import * as ImagePicker from "expo-image-picker";
+
+import { FirebaseContext } from "../context/FirebaseContext";
+import { UserContext } from "../context/UserContext";
 
 import Text from "../components/Text";
 
@@ -17,6 +19,8 @@ export default SignUpScreen = ({ navigation }) => {
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
   const [profilePhoto, setProfilePhoto] = useState();
+  const firebase = useContext(FirebaseContext);
+  const [_, setUser] = useContext(UserContext);
 
   const getPermission = async () => {
     if (Platform.OS !== "web") {
@@ -50,6 +54,22 @@ export default SignUpScreen = ({ navigation }) => {
       return;
     }
     pickImage();
+  };
+
+  const signUp = async () => {
+    setLoading(true);
+
+    const user = { username, email, password, profilePhoto };
+
+    try {
+      const createdUser = await firebase.createUser(user);
+
+      setUser({ ...createdUser, isLoggedIn: true });
+    } catch (error) {
+      console.log("Error @signUp: ", error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -107,7 +127,7 @@ export default SignUpScreen = ({ navigation }) => {
         </AuthContainer>
       </Auth>
 
-      <SignUpContainer disabled={loading}>
+      <SignUpContainer onPress={signUp} disabled={loading}>
         {loading ? (
           <Loading />
         ) : (
