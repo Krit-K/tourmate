@@ -3,11 +3,14 @@ import styled from "styled-components";
 import LottieView from "lottie-react-native";
 
 import { UserContext } from "../context/UserContext";
+import { FirebaseContext } from "../context/FirebaseContext";
 
 import Text from "../components/Text";
 
 export default LoadingScreen = () => {
   const [_, setUser] = useContext(UserContext);
+  const firebase = useContext(FirebaseContext);
+
   useEffect(() => {
     setTimeout(async () => {
       const user = firebase.getCurrentUser();
