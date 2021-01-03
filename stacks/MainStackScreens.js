@@ -3,12 +3,10 @@ import styled from "styled-components";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Entypo, FontAwesome } from "@expo/vector-icons";
 
-import AppStackScreens from "./AppStackScreens";
 import HomeScreen from "../screens/HomeScreen";
 import MessageScreen from "../screens/MessageScreen";
 import ExploreScreen from "../screens/ExploreScreen";
 import MeScreen from "../screens/MeScreen";
-import PlaceScreen from "../screens/PlaceScreen";
 
 import Text from "../components/Text";
 
