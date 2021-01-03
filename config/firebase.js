@@ -1,6 +1,7 @@
 export default {
   apiKey: "AIzaSyAJhF8tEl3sGBLXPYFhvHEeOT0HfERjEaI",
   authDomain: "thai-tour-app.firebaseapp.com",
+  databaseURL: "https://thai-tour-app-default-rtdb.firebaseio.com",
   projectId: "thai-tour-app",
   storageBucket: "thai-tour-app.appspot.com",
   messagingSenderId: "267382029521",
