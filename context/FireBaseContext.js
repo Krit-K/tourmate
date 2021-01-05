@@ -95,6 +95,21 @@ const Firebase = {
       console.log("Error @getUserInfo: ", error);
     }
   },
+
+  logout: async () => {
+    try {
+      await firebase.auth().signOut();
+      return true;
+    } catch (error) {
+      console.log("Error @LogOut: ", error);
+    }
+
+    return false;
+  },
+
+  signIn: async (email, password) => {
+    return firebase.auth().signInWithEmailAndPassword(email, password);
+  },
 };
 
 const FirebaseProvider = (props) => {
