@@ -1,7 +1,4 @@
 import React from "react";
-import styled from "styled-components";
-import { Entypo, FontAwesome } from "@expo/vector-icons";
-
 import { NavigationContainer } from "@react-navigation/native";
 import {
   createStackNavigator,
@@ -22,84 +19,15 @@ import { UserProvider } from "./context/UserContext";
 import { FirebaseProvider } from "./context/FirebaseContext";
 
 import AppStackScreens from "./stacks/AppStackScreens";
-import HomeScreen from "./screens/HomeScreen";
-import MessageScreen from "./screens/MessageScreen";
-import ExploreScreen from "./screens/ExploreScreen";
-import MeScreen from "./screens/MeScreen";
+import MeStackScreens from "./stacks/MeStackScreens";
+
 import PlaceScreen from "./screens/PlaceScreen";
 import TourScreen from "./screens/TourScreen";
 import TourGuideScreen from "./screens/TourGuideScreen";
 import CalendarScreen from "./screens/CalendarScreen";
-import GeneralScreen from "./screens/GeneralScreen";
-import EditProfileScreen from "./screens/EditProfileScreen";
-import InviteScreen from "./screens/InviteScreen";
-import UsefulContactsScreen from "./screens/UsefulContactsScreen";
-import AboutUsScreen from "./screens/AboutUsScreen";
-import VisitedPlaceScreen from "./screens/VisitedPlaceScreen";
-
-import Text from "./components/Text";
 
 const AppStack = createStackNavigator();
 const TabNav = createBottomTabNavigator();
-
-// const tabBarOptions = {
-//   showLabel: false,
-//   keyboardHidesTabBar: true,
-//   style: {
-//     backgroundColor: "#f3f3f3ff",
-//     borderTopColor: "#ede3daff",
-//   },
-// };
-
-const TabNavScreen = () => {
-  return (
-    <TabNav.Navigator
-      tabBarOptions={tabBarOptions}
-      screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused }) => {
-          let iconName;
-          switch (route.name) {
-            case "Home":
-              iconName = "home";
-              break;
-            case "Message":
-              iconName = "chat";
-              break;
-            case "Explore":
-              iconName = "globe";
-              break;
-            case "Me":
-              iconName = "user";
-              break;
-            default:
-              iconName = "home";
-              break;
-          }
-          const userFocused = iconName === "user";
-          return (
-            <TabBarContainer>
-              <TabBarIconContainer focused={focused}>
-                {userFocused ? (
-                  <FontAwesome name={iconName} size={26} color={"black"} />
-                ) : (
-                  <Entypo name={iconName} size={24} color={"black"} />
-                )}
-              </TabBarIconContainer>
-              <Text mini black>
-                {route.name}
-              </Text>
-            </TabBarContainer>
-          );
-        },
-      })}
-    >
-      {/* <TabNav.Screen name="Home" component={HomeScreen} />
-      <TabNav.Screen name="Message" component={MessageScreen} />
-      <TabNav.Screen name="Explore" component={ExploreScreen} />
-      <TabNav.Screen name="Me" component={MeScreen} /> */}
-    </TabNav.Navigator>
-  );
-};
 
 const GeneralScreens = () => {
   return (
@@ -156,55 +84,26 @@ export default function App() {
     <FirebaseProvider>
       <UserProvider>
         <NavigationContainer>
-          <AppStackScreens />
-          {/* <AppStack.Navigator
-        headerMode="none"
-        screenOptions={{
-          ...TransitionPresets.SlideFromRightIOS,
-          gestureEnabled: "true",
-          gestureDirection: "horizontal",
-        }}
-      >
-        <AppStack.Screen name="App" component={TabNavScreen} />
-        <AppStack.Screen name="PlaceScreen" component={PlaceScreen} />
-        <AppStack.Screen name="TourScreen" component={TourScreen} />
-        <AppStack.Screen name="TourGuideScreen" component={TourGuideScreen} />
-        <AppStack.Screen
-          name="UsefulContactsScreen"
-          component={UsefulContactsScreen}
-        />
-        <AppStack.Screen name="AboutUsScreen" component={AboutUsScreen} />
-        <AppStack.Screen
-          name="CalendarScreen"
-          component={CalendarScreen}
-          // options={{ ...TransitionPresets.FadeFromBottomAndroid }}
-        />
-        <AppStack.Screen name="GeneralScreen" component={GeneralScreen} />
-        <AppStack.Screen
-          name="EditProfileScreen"
-          component={EditProfileScreen}
-        />
-        <AppStack.Screen name="InviteScreen" component={InviteScreen} />
-        <AppStack.Screen
-          name="VisitedPlaceScreen"
-          component={VisitedPlaceScreen}
-        />
-      </AppStack.Navigator> */}
+          <AppStack.Navigator
+            headerMode="none"
+            screenOptions={{
+              ...TransitionPresets.SlideFromRightIOS,
+              gestureEnabled: "true",
+              gestureDirection: "horizontal",
+            }}
+          >
+            <AppStack.Screen name="AppScreens" component={AppStackScreens} />
+            <AppStack.Screen name="MeScreens" component={MeStackScreens} />
+            <AppStack.Screen name="PlaceScreen" component={PlaceScreen} />
+            <AppStack.Screen name="TourScreen" component={TourScreen} />
+            <AppStack.Screen name="CalendarScreen" component={CalendarScreen} />
+            <AppStack.Screen
+              name="TourGuideScreen"
+              component={TourGuideScreen}
+            />
+          </AppStack.Navigator>
         </NavigationContainer>
       </UserProvider>
     </FirebaseProvider>
   );
 }
-
-const TabBarIconContainer = styled.View`
-  background-color: ${(props) => (props.focused ? "#abd3c6" : "#f3f3f3ff")};
-  padding: 2px 16px;
-  border-radius: 32px;
-  align-items: center;
-  margin-bottom: -2px;
-`;
-
-const TabBarContainer = styled.View`
-  align-items: center;
-  padding: 2px 16px;
-`;
