@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { StatusBar } from "react-native";
 import styled from "styled-components";
 import {
@@ -12,12 +12,17 @@ import {
   SimpleLineIcons,
 } from "@expo/vector-icons";
 
+import { FirebaseContext } from "../context/FirebaseContext";
+import { UserContext } from "../context/UserContext";
+
 import profileImage from "../assets/jennie.png";
 import tourGuides from "../data/tourGuideData";
 import Text from "../components/Text";
 import SafeAreaView from "../components/SafeAreaView";
 
 export default MeScreen = ({ navigation }) => {
+  const [user, setUser] = useContext(UserContext);
+  const firebase = useContext(FirebaseContext);
   return (
     <PlaceContainer>
       <SafeAreaView green />
@@ -27,13 +32,19 @@ export default MeScreen = ({ navigation }) => {
         <Header>
           <ProfileInfo>
             <Text white title>
-              Jennie Kim
+              {user.username}
             </Text>
             <Text white large>
               ID: BK1996
             </Text>
           </ProfileInfo>
-          <ProfileImage source={profileImage} />
+          <ProfileImage
+            source={
+              user.profilePhotoUrl === "default"
+                ? require("../assets/jennie.png")
+                : { uri: user.profilePhotoUrl }
+            }
+          />
         </Header>
         <FavourtieGuidesContainer>
           <Text style={{ fontSize: vh(2.2) }}> My Favourite Tour Guides</Text>
@@ -78,7 +89,11 @@ export default MeScreen = ({ navigation }) => {
 
       <ButtonContainer>
         <ButtonColumn>
-          <Button onPress={() => navigation.navigate("GeneralScreen")}>
+          <Button
+            onPress={() =>
+              navigation.navigate("MeScreens", { screen: "GeneralScreen" })
+            }
+          >
             <FontAwesome name="sliders" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
@@ -86,7 +101,11 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button onPress={() => navigation.navigate("VisitedPlaceScreen")}>
+          <Button
+            onPress={() =>
+              navigation.navigate("MeScreens", { screen: "VisitedPlaceScreen" })
+            }
+          >
             <Feather name="map-pin" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
@@ -94,7 +113,11 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button onPress={() => navigation.navigate("InviteScreen")}>
+          <Button
+            onPress={() =>
+              navigation.navigate("MeScreens", { screen: "InviteScreen" })
+            }
+          >
             <Octicons name="gift" size={vh(4)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
@@ -104,7 +127,11 @@ export default MeScreen = ({ navigation }) => {
           </Button>
         </ButtonColumn>
         <ButtonColumn>
-          <Button onPress={() => navigation.navigate("EditProfileScreen")}>
+          <Button
+            onPress={() =>
+              navigation.navigate("MeScreens", { screen: "EditProfileScreen" })
+            }
+          >
             <SimpleLineIcons name="settings" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
@@ -112,7 +139,13 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button onPress={() => navigation.navigate("UsefulContactsScreen")}>
+          <Button
+            onPress={() =>
+              navigation.navigate("MeScreens", {
+                screen: "UsefulContactsScreen",
+              })
+            }
+          >
             <SimpleLineIcons name="phone" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: vw(4) }}>
@@ -120,7 +153,11 @@ export default MeScreen = ({ navigation }) => {
               </Text>
             </TextContainer>
           </Button>
-          <Button onPress={() => navigation.navigate("AboutUsScreen")}>
+          <Button
+            onPress={() =>
+              navigation.navigate("MeScreens", { screen: "AboutUsScreen" })
+            }
+          >
             <SimpleLineIcons name="question" size={vh(3.5)} color="black" />
             <TextContainer>
               <Text black small style={{ marginLeft: 12 }}>
