@@ -140,7 +140,7 @@ export default SignUpScreen = ({ navigation }) => {
       <SignIn onPress={() => navigation.navigate("SignIn")}>
         <Text black center>
           Already have an account?{" "}
-          <Text bold color="#8022d9">
+          <Text bold orange>
             Sign In
           </Text>
         </Text>
@@ -158,6 +158,7 @@ export default SignUpScreen = ({ navigation }) => {
 
 const Container = styled.View`
   flex: 1;
+  background-color: #f3f3f3ff;
 `;
 
 const Main = styled.View`
@@ -209,7 +210,7 @@ const SignUpContainer = styled.TouchableOpacity`
   height: ${vh(6)}px;
   align-items: center;
   justify-content: center;
-  background-color: #8022d9;
+  background-color: #abd3c6;
   border-radius: 6px;
 `;
 
@@ -230,7 +231,7 @@ const HeaderGraphic = styled.View`
 `;
 
 const RightCircle = styled.View`
-  background-color: #8022d9;
+  background-color: #ece4dc;
   position: absolute;
   width: ${vw(100)}px;
   height: ${vw(100)}px;
@@ -240,7 +241,7 @@ const RightCircle = styled.View`
 `;
 
 const LeftCircle = styled.View`
-  background-color: #23a6d5;
+  background-color: #abd3c6;
   position: absolute;
   width: ${vw(50)}px;
   height: ${vw(50)}px;
