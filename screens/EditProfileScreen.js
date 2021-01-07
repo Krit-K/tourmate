@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import { StatusBar } from "react-native";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import profilePhoto from "../assets/jennie.png";
 import { heightPercentageToDP as vh } from "react-native-responsive-screen";
 
+import { UserContext } from "../context/UserContext";
+import { FirebaseContext } from "../context/FirebaseContext";
+
 import Text from "../components/Text";
 import SafeAreaView from "../components/SafeAreaView";
 
 export default EditProfileScreen = ({ navigation }) => {
+  const [user, setUser] = useContext(UserContext);
+  const firebase = useContext(FirebaseContext);
+
+  const logout = async () => {
+    const loggedOut = await firebase.logout();
+
+    if (loggedOut) {
+      setUser((state) => ({ ...state, isLoggedIn: false }));
+    }
+  };
   return (
     <EditProfileContainer>
       <SafeAreaView />
@@ -120,8 +133,13 @@ export default EditProfileScreen = ({ navigation }) => {
             </Button>
           </LowerMiddleContainer>
           <BottomContainer>
-            <LogoutButton>
-              <Text green style={{ alignSelf: "center" }}>
+            <LogoutButton
+              onPress={() => {
+                navigation.navigate("AppScreens");
+                logout();
+              }}
+            >
+              <Text green center>
                 LOGOUT
               </Text>
             </LogoutButton>
