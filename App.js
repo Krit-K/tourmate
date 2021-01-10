@@ -31,6 +31,7 @@ import EditProfileScreen from "./components/screens/EditProfileScreen";
 import InviteScreen from "./components/screens/InviteScreen";
 import UsefulContactsScreen from "./components/screens/UsefulContactsScreen";
 import AboutUsScreen from "./components/screens/AboutUsScreen";
+import VisitedPlaceScreen from "./components/screens/VisitedPlaceScreen";
 
 import Text from "./components/Text";
 
@@ -177,6 +178,10 @@ export default function App() {
           component={EditProfileScreen}
         />
         <AppStack.Screen name="InviteScreen" component={InviteScreen} />
+        <AppStack.Screen
+          name="VisitedPlaceScreen"
+          component={VisitedPlaceScreen}
+        />
       </AppStack.Navigator>
     </NavigationContainer>
   );
